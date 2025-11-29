@@ -1,0 +1,19 @@
+63f7b34db8d8cdea90c76aacccf841ec
+::res://::1764394151
+icon.svg::CompressedTexture2D::8621534149613016193::1764333908::1764333924::1::::<><><>0<>0<>05338fd42d20c4a5fc6794e0805770e0<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+::res://Image/::1764385654
+::res://Image/Character/::1764394212
+Basic Charakter Spritesheet.png::CompressedTexture2D::4828010815390669400::1764335441::1764335470::1::::<><><>0<>0<>2103cebdd72cd9567cefe3f2c224f957<>res://.godot/imported/Basic Charakter Spritesheet.png-5c3f5ecc35a5070a844c910642d934bd.ctex::
+Cow.tscn::PackedScene::5196155920537593909::1764394618::0::1::::<><><>0<>0<><>::uid://81ao3fr57xss::::res://Image/Character/Free Cow Sprites.png<>uid://dakeqwxge2rpe::::res://Script/cow.gd
+Free Cow Sprites.png::CompressedTexture2D::2369932141966894738::1764391394::1764391395::1::::<><><>0<>0<>a006909ecf1dcfca504a595ade974e87<>res://.godot/imported/Free Cow Sprites.png-57dc79cdecb45eaa225e2cf8777ac0c8.ctex::
+::res://Image/Tilempas/::1764385723
+Grass.png::CompressedTexture2D::5507161210437177889::1764385722::1764385723::1::::<><><>0<>0<>b983872456b56d63634c8b47c2a7b6b0<>res://.godot/imported/Grass.png-d5ca3a83c7695905a9e47c5aff1adc1c.ctex::
+Hills.png::CompressedTexture2D::9129712498219608676::1764385722::1764385723::1::::<><><>0<>0<>b2ef4072b3f0cacb38a82a0e80403b93<>res://.godot/imported/Hills.png-be94ce591ff1125bc3f8a04f7ec263c7.ctex::
+Tilled Dirt.png::CompressedTexture2D::7615681858506095019::1764385722::1764385723::1::::<><><>0<>0<>ff31e90e6cbba7c1cd7be0f2577d0ea6<>res://.godot/imported/Tilled Dirt.png-58cfbc52acfb4d8f3cce7c039c7c715a.ctex::
+Water.png::CompressedTexture2D::4054027656990886704::1764385722::1764385723::1::::<><><>0<>0<>9b4bb5803bc582fe1ea20ad2ec51c56a<>res://.godot/imported/Water.png-5145320fb23427d3c753dfc3aa38555c.ctex::
+::res://Scenes/::1764390473
+character_body_2d.tscn::PackedScene::4103526269568018107::1764385506::0::1::::<><><>0<>0<><>::uid://cp7y4yg8fkm1v::::res://Script/character_movement.gd<>uid://ca1yvrpskhruu::::res://Image/Character/Basic Charakter Spritesheet.png
+outer_home.tscn::PackedScene::4409471551109065334::1764390473::0::1::::<><><>0<>0<><>::uid://byp1qiykpin2b::::res://Scenes/character_body_2d.tscn<>uid://ckpye1pmy7nuf::::res://Image/Tilempas/Grass.png<>uid://d3crbb2taabyq::::res://Image/Tilempas/Hills.png
+::res://Script/::1764394212
+character_movement.gd::GDScript::5893244377271926265::1764394618::0::1::::<>CharacterBody2D<><>0<>0<><>::
+cow.gd::GDScript::7180178460616689118::1764394618::0::1::::<>CharacterBody2D<><>0<>0<><>::

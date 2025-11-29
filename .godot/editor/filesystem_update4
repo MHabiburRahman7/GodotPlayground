@@ -1,0 +1,5 @@
+res://Scenes/outer_home.tscn
+res://Image/Character/Cow.tscn
+res://Script/cow.gd
+res://Script/character_movement.gd
+res://Scenes/Cow.tscn

@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "kOLVVE/Fcsk=",
+  "success": true,
+  "projectFilePath": "D:\\Rahman\\GodotProject\\project-o\\ProjectO.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\habibur.r_accelbyte\\.nuget\\packages\\godot.sourcegenerators\\4.5.1\\godot.sourcegenerators.4.5.1.nupkg.sha512",
+    "C:\\Users\\habibur.r_accelbyte\\.nuget\\packages\\godotsharp\\4.5.1\\godotsharp.4.5.1.nupkg.sha512",
+    "C:\\Users\\habibur.r_accelbyte\\.nuget\\packages\\godotsharpeditor\\4.5.1\\godotsharpeditor.4.5.1.nupkg.sha512"
+  ],
+  "logs": []
+}
