@@ -1,0 +1,46 @@
+# ======================================
+# Godot 4 Project
+# ======================================
+
+# Godot import & cache folders
+.import/
+.export/
+.cache/
+
+# Mono / C# build folders
+bin/
+obj/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Godot-specific temporary / user files
+*.tmp
+*.log
+*.userprefs
+*.godot/
+*.import
+
+# Visual Studio / Rider / VS Code IDE files
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.pidb
+*.booproj
+*.svd
+
+# Backup files
+*.swp
+*.bak
+*.old
+
+# ======================================
+# Keep these (commit to repo)
+# ======================================
+# C# project files
+*.sln
+*.csproj
