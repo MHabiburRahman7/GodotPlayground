@@ -2,12 +2,14 @@
 # Godot 4 Project
 # ======================================
 
-# Godot import & cache folders
-.import/
-.export/
-.cache/
+# Godot editor cache folder
+.godot/
+!.godot/imported/
 
-# Mono / C# build folders
+# Keep imported assets
+# .import/  <-- DO NOT ignore this!
+
+# Mono / C# build folders (safe to ignore)
 bin/
 obj/
 
@@ -20,8 +22,6 @@ desktop.ini
 *.tmp
 *.log
 *.userprefs
-*.godot/
-*.import
 
 # Visual Studio / Rider / VS Code IDE files
 .vscode/
@@ -37,10 +37,3 @@ desktop.ini
 *.swp
 *.bak
 *.old
-
-# ======================================
-# Keep these (commit to repo)
-# ======================================
-# C# project files
-*.sln
-*.csproj
