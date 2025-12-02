@@ -1,19 +1,47 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1764394151
+::res://::1764678652
 icon.svg::CompressedTexture2D::8621534149613016193::1764333908::1764333924::1::::<><><>0<>0<>05338fd42d20c4a5fc6794e0805770e0<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-::res://Image/::1764385654
-::res://Image/Character/::1764394212
+main_camera.gd::GDScript::3354833455899993367::1764666198::0::1::::<>Camera2D<><>0<>0<><>::
+::res://Image/::1764673646
+::res://Image/Character/::1764394668
 Basic Charakter Spritesheet.png::CompressedTexture2D::4828010815390669400::1764335441::1764335470::1::::<><><>0<>0<>2103cebdd72cd9567cefe3f2c224f957<>res://.godot/imported/Basic Charakter Spritesheet.png-5c3f5ecc35a5070a844c910642d934bd.ctex::
-Cow.tscn::PackedScene::5196155920537593909::1764394618::0::1::::<><><>0<>0<><>::uid://81ao3fr57xss::::res://Image/Character/Free Cow Sprites.png<>uid://dakeqwxge2rpe::::res://Script/cow.gd
 Free Cow Sprites.png::CompressedTexture2D::2369932141966894738::1764391394::1764391395::1::::<><><>0<>0<>a006909ecf1dcfca504a595ade974e87<>res://.godot/imported/Free Cow Sprites.png-57dc79cdecb45eaa225e2cf8777ac0c8.ctex::
-::res://Image/Tilempas/::1764385723
+::res://Image/SplashScreen/::1764674108
+SScreen1.jpg::CompressedTexture2D::8168838149747649840::1764674025::1764674027::1::::<><><>0<>0<>9bb9f0469f36cafaa1fd8351a124a88f<>res://.godot/imported/SScreen1.jpg-d1a7c4c1fae307550822ecb35064d65e.ctex::
+SScreen2.jpg::CompressedTexture2D::2515469820549280929::1764674107::1764674108::1::::<><><>0<>0<>8dd0d2dc91ed2f539ebb1424afbbeef2<>res://.godot/imported/SScreen2.jpg-266dd1f12f2249ef418dc729df2e37d0.ctex::
+::res://Image/Tilempas/::1764668215
+Doors.png::CompressedTexture2D::1381292261906678255::1764576504::1764668215::1::::<><><>0<>0<>7baf71c63ea9c3db4065305d40a114d9<>res://.godot/imported/Doors.png-efe7d13dcf8e2fbd43d268ee428999e3.ctex::
 Grass.png::CompressedTexture2D::5507161210437177889::1764385722::1764385723::1::::<><><>0<>0<>b983872456b56d63634c8b47c2a7b6b0<>res://.godot/imported/Grass.png-d5ca3a83c7695905a9e47c5aff1adc1c.ctex::
 Hills.png::CompressedTexture2D::9129712498219608676::1764385722::1764385723::1::::<><><>0<>0<>b2ef4072b3f0cacb38a82a0e80403b93<>res://.godot/imported/Hills.png-be94ce591ff1125bc3f8a04f7ec263c7.ctex::
 Tilled Dirt.png::CompressedTexture2D::7615681858506095019::1764385722::1764385723::1::::<><><>0<>0<>ff31e90e6cbba7c1cd7be0f2577d0ea6<>res://.godot/imported/Tilled Dirt.png-58cfbc52acfb4d8f3cce7c039c7c715a.ctex::
 Water.png::CompressedTexture2D::4054027656990886704::1764385722::1764385723::1::::<><><>0<>0<>9b4bb5803bc582fe1ea20ad2ec51c56a<>res://.godot/imported/Water.png-5145320fb23427d3c753dfc3aa38555c.ctex::
-::res://Scenes/::1764390473
-character_body_2d.tscn::PackedScene::4103526269568018107::1764385506::0::1::::<><><>0<>0<><>::uid://cp7y4yg8fkm1v::::res://Script/character_movement.gd<>uid://ca1yvrpskhruu::::res://Image/Character/Basic Charakter Spritesheet.png
-outer_home.tscn::PackedScene::4409471551109065334::1764390473::0::1::::<><><>0<>0<><>::uid://byp1qiykpin2b::::res://Scenes/character_body_2d.tscn<>uid://ckpye1pmy7nuf::::res://Image/Tilempas/Grass.png<>uid://d3crbb2taabyq::::res://Image/Tilempas/Hills.png
-::res://Script/::1764394212
-character_movement.gd::GDScript::5893244377271926265::1764394618::0::1::::<>CharacterBody2D<><>0<>0<><>::
-cow.gd::GDScript::7180178460616689118::1764394618::0::1::::<>CharacterBody2D<><>0<>0<><>::
+Wooden House.png::CompressedTexture2D::5423397134355969711::1764576504::1764668215::1::::<><><>0<>0<>94b0f4a86bec12211cc51d04d48f724a<>res://.godot/imported/Wooden House.png-317f57db7de0c1d77dbc39d8e920df66.ctex::
+Wooden_House_Roof_Tilset.png::CompressedTexture2D::6936831195765016897::1764576504::1764668215::1::::<><><>0<>0<>9e11738755c92b62cc5673c119fa5a28<>res://.godot/imported/Wooden_House_Roof_Tilset.png-098e4b13eebb71f167291b754bbbbc2f.ctex::
+Wooden_House_Walls_Tilset.png::CompressedTexture2D::2916035785185238545::1764576504::1764668215::1::::<><><>0<>0<>862ca52297ccdda0ed84122129fe0e91<>res://.godot/imported/Wooden_House_Walls_Tilset.png-1a6ba63f90fafb70f10698f73c9f8508.ctex::
+::res://Scenes/::1764678585
+character_body_2d.tscn::PackedScene::4103526269568018107::1764671429::0::1::::<><><>0<>0<><>::uid://cp7y4yg8fkm1v::::res://Script/character_movement.gd<>uid://ca1yvrpskhruu::::res://Image/Character/Basic Charakter Spritesheet.png
+Cow.tscn::PackedScene::5196155920537593909::1764671558::0::1::::<><><>0<>0<><>::uid://81ao3fr57xss::::res://Image/Character/Free Cow Sprites.png<>uid://dakeqwxge2rpe::::res://Script/cow.gd
+GameControllerUI.tscn::PackedScene::8595981299693294216::1764678585::0::1::::<><><>0<>0<><>::uid://b5cf2halu0a2a::::res://Script/game_controller.gd<>uid://5hmwd7ueuxwr::::res://Scenes/UI/Debug.tscn<>uid://b12xrqypi1xhh::::res://Scenes/UI/SplashScreenManager.tscn<>uid://bedtq534nektp::::res://Scenes/UI/TransitionController.tscn
+::res://Scenes/Maps/::1764678251
+InsideHome.tscn::PackedScene::6846332987880414672::1764676667::0::1::::<><><>0<>0<><>::
+OutsideHome.tscn::PackedScene::1178567137582404736::1764678251::0::1::::<><><>0<>0<><>::uid://b20popcun3h8m::::res://Tilemaps/outer_home.tres<>uid://cgbb6t0i3qxcv::::res://Scenes/Cow.tscn<>uid://byp1qiykpin2b::::res://Scenes/character_body_2d.tscn
+::res://Scenes/UI/::1764678585
+Debug.tscn::PackedScene::2120884052717154233::1764671324::0::1::::<><><>0<>0<><>::uid://b1smf2fohu2em::::res://Script/Debug.gd
+MainMenu.tscn::PackedScene::7425646561589341563::1764677140::0::1::::<><><>0<>0<><>::uid://yclp8rprn2vk::::res://Scenes/UI/MainMenuTheme.tres<>uid://vw3sjbpdptc4::::res://Script/MainMenuUI.gd
+MainMenuTheme.tres::Theme::1689357436886923096::1764678585::0::1::::<><><>0<>0<><>::
+SplashScreenManager.tscn::PackedScene::4268496545113747969::1764676144::0::1::::<><><>0<>0<><>::uid://cmb5nrawx7ojc::::res://Script/SplashScreenManager.gd<>uid://dd2bkw7h4g028::::res://Scenes/UI/MainMenu.tscn<>uid://donbtn5pufpmu::::res://Image/SplashScreen/SScreen1.jpg<>uid://bb3rokatl8ds0::::res://Image/SplashScreen/SScreen2.jpg
+TransitionController.tscn::PackedScene::2674553007362648141::1764672745::0::1::::<><><>0<>0<><>::uid://dsc7utvy3uina::::res://Script/SceneTransitionController.gd
+::res://Script/::1764678089
+character_movement.gd::GDScript::5893244377271926265::1764668972::0::1::::<>CharacterBody2D<><>0<>0<><>::
+cow.gd::GDScript::7180178460616689118::1764394850::0::1::::<>CharacterBody2D<><>0<>0<><>::
+Debug.gd::GDScript::4249228377238484752::1764671558::0::1::::Debug<>Control<><>0<>0<><>::
+door_to_outside.gd::GDScript::7056034409205025247::1764647508::0::1::::<>Area2D<><>0<>0<><>::
+game_controller.gd::GDScript::4496566917932407550::1764677977::0::1::::GameController<>Node<><>0<>0<><>::
+Global.gd::GDScript::435926946884867467::1764678089::0::1::::<>Node<><>0<>0<><>::
+MainMenuUI.gd::GDScript::1521114722016851957::1764678039::0::1::::<>Control<><>0<>0<><>::
+main_game.gd::GDScript::4103956170956974345::1764669439::0::1::::<>Node<><>0<>0<><>::
+SceneTransitionController.gd::GDScript::8428769683231839226::1764672036::0::1::::SceneTransitionController<>Control<><>0<>0<><>::
+SplashScreenManager.gd::GDScript::5619017487828949788::1764673518::0::1::::<>Control<><>0<>0<><>::
+::res://Tilemaps/::1764678585
+house_base_tilemap.tres::TileSet::4812532049539280134::1764577724::0::1::::<><><>0<>0<><>::uid://cjjes8syjb36j::::res://Image/Tilempas/Wooden House.png
+outer_home.tres::TileSet::4334065453644686906::1764678585::0::1::::<><><>0<>0<><>::uid://ckpye1pmy7nuf::::res://Image/Tilempas/Grass.png<>uid://d3crbb2taabyq::::res://Image/Tilempas/Hills.png

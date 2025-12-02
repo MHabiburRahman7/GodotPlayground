@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://dd2bkw7h4g028"]
+
+[ext_resource type="Theme" uid="uid://yclp8rprn2vk" path="res://Scenes/UI/MainMenuTheme.tres" id="1_g18y6"]
+[ext_resource type="Script" uid="uid://vw3sjbpdptc4" path="res://Script/MainMenuUI.gd" id="1_mjmdf"]
+
+[node name="CenterContainer" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mjmdf")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+theme = ExtResource("1_g18y6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="StartButton" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "New Game"
+
+[node name="ContinueButton" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Continue"
+
+[node name="ExitButton" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Exit"
+
+[connection signal="button_down" from="PanelContainer/VBoxContainer/StartButton" to="." method="_on_start_button_button_down"]
+[connection signal="button_down" from="PanelContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_button_down"]

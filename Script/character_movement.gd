@@ -20,6 +20,11 @@ func _physics_process(_delta: float) -> void:
 	_update_animation_param(input_vec)
 
 	velocity = input_vec * move_speed
+	#print("input vec x:", input_vec.x
+		#, " input y: ", input_vec.y
+		#, " velocity: ", velocity
+		#, " pos: ", global_position)
+	
 	move_and_slide()
 	_pick_new_state()
 	
