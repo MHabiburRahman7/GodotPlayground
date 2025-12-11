@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var target_scene: PackedScene       # e.g., InsideHouse.tscn
+@export var target_scene: String       # e.g., InsideHouse.tscn
 @export var spawn_location: String
 
 func _ready():
@@ -10,9 +10,6 @@ func _ready():
 	add_to_group("doors")
 	#if not is_connected("body_entered", Callable(self, "_on_body_entered")):
 		#connect("body_entered", Callable(self, "_on_body_entered"))
-
-func enable_door():
-	monitoring = true
 
 #func _on_body_entered(body):
 	##var sender = get_sender()

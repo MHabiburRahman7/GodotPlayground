@@ -34,5 +34,8 @@ text = "Continue"
 layout_mode = 2
 text = "Exit"
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(578, 322)
+
 [connection signal="button_down" from="PanelContainer/VBoxContainer/StartButton" to="." method="_on_start_button_button_down"]
 [connection signal="button_down" from="PanelContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_button_down"]

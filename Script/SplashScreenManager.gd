@@ -31,9 +31,9 @@ func get_screens() -> void:
 	for screen in splash_screens:
 		screen.modulate.a = 0.0
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_pressed():
-		move_to_main_menu_scene()
+#func _unhandled_input(event: InputEvent) -> void:
+	#if event.is_pressed():
+		#move_to_main_menu_scene()
 		#get_tree().change_scene_to_packed(load_scene)
 
 func move_to_main_menu_scene() -> void:
