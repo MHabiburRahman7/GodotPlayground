@@ -1,0 +1,86 @@
+{
+  "id": "chapter_1_intro",
+  "lines": [
+	{
+		"event": "FadeOut",
+		"detail": 
+		{
+			"pause_time":3
+		}
+	},
+	{
+	  "player": "Beatrice",
+	  "text": "Okay, Beatrice, breathe. You graduated. You're alive. You have a degree. You just... don’t have a job. Minor detail."
+	},
+	{
+	  "player": "Beatrice",
+	  "text": "How hard can it be to find work as a Computer Science graduate? Apparently very hard. Very, VERY hard. Like 'finding the USB port on the back of a PC in the dark' kind of hard."
+	},
+	{
+	  "player": "Beatrice",
+	  "text": "Three interviews, two rejections, and one company that ghosted me harder than my crush in high school… Yep. We're thriving."
+	},
+	{
+	  "player": "Beatrice",
+	  "text": "Maybe I should call Sunoto. He’s doing well in the city. He owes me anyway… for that time I saved him from failing Algorithms by force-feeding him caffeine."
+	},
+	{
+		"event": "FadeIn",
+		"detail":
+		{
+			"pause_time":3
+		}
+	},
+	{
+		"event": "FadeOut",
+		"detail":
+		{
+			"pause_time":0
+		}
+	},
+	{
+	  "npc": "Sunoto",
+	  "text": "Yo! Tris! Long time no see! Did you finally invent that AI boyfriend you were joking about?"
+	},
+	{
+	  "player": "Beatrice",
+	  "text": "No, but thanks for reminding me of my failures. Also, I have… news."
+	},
+	{
+	  "npc": "Sunoto",
+	  "text": "Uh oh. Is this the 'good news with bad news' thing, or the 'bad news with catastrophic news' thing?"
+	},
+	{
+	  "player": "Beatrice",
+	  "text": "The job hunt is… not great. Actually it’s terrible. Even my spam folder has more opportunities than my inbox."
+	},
+	{
+	  "npc": "Sunoto",
+	  "text": "Dang. That bad, huh? Come to the city! I got a spare room. Costs almost nothing. Just help me keep the place clean. And by 'clean,' I mean 'don’t let my plants die. Again.'"
+	},
+	{
+	  "player": "Beatrice",
+	  "text": "You killed them again?! Sunoto, aloe vera survives literal desert conditions!"
+	},
+	{
+	  "npc": "Sunoto",
+	  "text": "Look, some people are not meant to be parents. Even to plants. Anyway, the room’s yours if you want it."
+	},
+	{
+	  "player": "Beatrice",
+	  "text": "…I don’t have much of a choice, do I?"
+	},
+	{
+	  "npc": "Sunoto",
+	  "text": "Nope! Pack your stuff! Welcome to the big city, Beatrice. Land of opportunity! Also land of traffic jams, questionable street food, and neighbors who sing karaoke at 3 AM."
+	},
+	{
+	  "player": "Beatrice",
+	  "text": "Honestly? That still sounds better than living with my parents and explaining every day why I’m unemployed."
+	},
+	{
+	  "npc": "Sunoto",
+	  "text": "Then it’s settled! And hey—this is just chapter one. Things will get better. Probably. Maybe. Hopefully. No promises."
+	}
+  ]
+}

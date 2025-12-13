@@ -1,0 +1,101 @@
+[gd_scene load_steps=4 format=3 uid="uid://bx6i8be07ja26"]
+
+[ext_resource type="Script" uid="uid://dkl3656s0qd3o" path="res://Scenes/Dialogue/DialogueController.gd" id="1_5dbs8"]
+[ext_resource type="Texture2D" uid="uid://du3ln4pbru7hd" path="res://icon.svg" id="1_letar"]
+[ext_resource type="Texture2D" uid="uid://donbtn5pufpmu" path="res://Image/SplashScreen/SScreen1.jpg" id="2_5dbs8"]
+
+[node name="MainDialogueUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 652.0
+script = ExtResource("1_5dbs8")
+
+[node name="MainPanel" type="Panel" parent="BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Background" type="Sprite2D" parent="BoxContainer/MainPanel"]
+position = Vector2(591.00006, 535.75)
+scale = Vector2(0.32800004, 0.08674999)
+texture = ExtResource("2_5dbs8")
+
+[node name="PlayerNameBg" type="Sprite2D" parent="BoxContainer/MainPanel"]
+visible = false
+position = Vector2(225, 420)
+scale = Vector2(1.96875, 0.4453125)
+texture = ExtResource("1_letar")
+
+[node name="ChatPanel" type="Panel" parent="BoxContainer/MainPanel"]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 451.0
+offset_right = 1085.0
+offset_bottom = 623.0
+
+[node name="ChatContentLabel" type="Label" parent="BoxContainer/MainPanel/ChatPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -440.5
+offset_top = -63.0
+offset_right = 443.5
+offset_bottom = 77.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit amet mi non quam porttitor maximus. Sed leo orci, vestibulum dictum leo ac, congue ultricies elit. Praesent vulputate hendrerit felis, vel mollis felis volutpat quis. Nulla in fermentum odio, ut condimentum felis. Cras consequat bibendum semper. Donec varius dolor arcu, sit amet sagittis ex faucibus vel. Quisque ut nibh rutrum diam efficitur lacinia. Cras pulvinar dolor orci, in auctor mauris ultrices vel. Ut consequat molestie justo, sed laoreet felis auctor ullamcorper. Sed at condimentum felis, a interdum enim"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="PlayerNamelPanel" type="Panel" parent="BoxContainer/MainPanel"]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 395.0
+offset_right = 348.0
+offset_bottom = 451.0
+
+[node name="PlayerNameLabel" type="Label" parent="BoxContainer/MainPanel/PlayerNamelPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_right = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Hello world"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="NPCNamelPanel" type="Panel" parent="BoxContainer/MainPanel"]
+layout_mode = 0
+offset_left = 834.0
+offset_top = 391.0
+offset_right = 1084.0
+offset_bottom = 447.0
+
+[node name="NPCNameLabel" type="Label" parent="BoxContainer/MainPanel/NPCNamelPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Not hello world"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
