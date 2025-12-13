@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3 uid="uid://dlwiy8cs5iekc"]
+
+[ext_resource type="Script" uid="uid://cvdsr82qy5srh" path="res://Script/Item/ItemData.gd" id="1_fxfkm"]
+
+[resource]
+script = ExtResource("1_fxfkm")
+id = "item001"
+name = "i dont know"
+stackable = true
+base_price = 10
+category = "test_category"
+metadata/_custom_type_script = "uid://cvdsr82qy5srh"
