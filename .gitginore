@@ -2,12 +2,12 @@
 # Godot 4 Project
 # ======================================
 
-# Godot editor cache folder
+# Godot 4+ specific ignores
 .godot/
-!.godot/imported/
+.nomedia
 
-# Keep imported assets
-# .import/  <-- DO NOT ignore this!
+# Godot 3.x
+.import/
 
 # Mono / C# build folders (safe to ignore)
 bin/
@@ -22,6 +22,17 @@ desktop.ini
 *.tmp
 *.log
 *.userprefs
+.import/
+export.cfg
+export_credentials.cfg
+
+# Imported translations (automatically generated from CSV files)
+*.translation
+
+# Mono-specific ignores
+.mono/
+data_*/
+mono_crash.*.json
 
 # Visual Studio / Rider / VS Code IDE files
 .vscode/
