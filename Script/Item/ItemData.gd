@@ -6,3 +6,5 @@ class_name ItemData
 @export var stackable: bool
 @export var base_price: int
 @export var category: String
+
+@export var icon : Texture

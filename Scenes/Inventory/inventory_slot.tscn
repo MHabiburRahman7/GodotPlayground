@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxn83nt7rb8d3"]
+
+[ext_resource type="Texture2D" uid="uid://du3ln4pbru7hd" path="res://icon.svg" id="1_4lduu"]
+[ext_resource type="Script" uid="uid://cjunkaonb3kgd" path="res://Script/Inventory/InventorySlot.gd" id="1_e2ctm"]
+
+[node name="InventorySlot" type="Control" node_paths=PackedStringArray("this_texture", "this_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1018.0
+offset_bottom = -476.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e2ctm")
+this_texture = NodePath("TextureRect")
+this_label = NodePath("Label")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_4lduu")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 135.0
+offset_right = 120.0
+offset_bottom = 158.0
+text = "This is an item"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 131.0
+offset_bottom = 167.0

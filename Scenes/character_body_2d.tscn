@@ -1,7 +1,8 @@
-[gd_scene load_steps=27 format=3 uid="uid://byp1qiykpin2b"]
+[gd_scene load_steps=28 format=3 uid="uid://byp1qiykpin2b"]
 
 [ext_resource type="Script" uid="uid://cp7y4yg8fkm1v" path="res://Script/character_movement.gd" id="1_88kja"]
 [ext_resource type="Texture2D" uid="uid://ca1yvrpskhruu" path="res://Image/Character/Basic Charakter Spritesheet.png" id="2_it8n0"]
+[ext_resource type="PackedScene" uid="uid://bp6x1f63v67xd" path="res://Scenes/Inventory/inventory_panel.tscn" id="3_it8n0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_88kja"]
 size = Vector2(10, 4)
@@ -243,3 +244,7 @@ tree_root = SubResource("AnimationNodeStateMachine_2g5yi")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Idle/blend_position = Vector2(-0.14451987, -0.09372187)
 parameters/Walk/blend_position = Vector2(0.0009698868, 0.014798164)
+
+[node name="InventoryPanel" parent="." instance=ExtResource("3_it8n0")]
+
+[node name="Camera2D" type="Camera2D" parent="."]

@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://bp6x1f63v67xd"]
+
+[ext_resource type="Script" uid="uid://txcxartmcfv1" path="res://Script/Inventory/InventoryPanel.gd" id="1_jp7nv"]
+[ext_resource type="PackedScene" uid="uid://dxn83nt7rb8d3" path="res://Scenes/Inventory/inventory_slot.tscn" id="2_px7yd"]
+
+[node name="InventoryPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -608.0
+offset_bottom = -268.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jp7nv")
+slot_scene = ExtResource("2_px7yd")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 83.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 160
+theme_override_constants/v_separation = 180
+columns = 4

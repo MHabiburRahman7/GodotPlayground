@@ -25,3 +25,5 @@ layout_mode = 1
 [node name="Debug" parent="." instance=ExtResource("2_x1skj")]
 
 [node name="TransitionController" parent="." instance=ExtResource("3_6ao8f")]
+
+[node name="System" type="Node" parent="."]

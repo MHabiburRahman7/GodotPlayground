@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3 uid="uid://dlwiy8cs5iekc"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://dlwiy8cs5iekc"]
 
 [ext_resource type="Script" uid="uid://cvdsr82qy5srh" path="res://Script/Item/ItemData.gd" id="1_fxfkm"]
+[ext_resource type="Texture2D" uid="uid://du3ln4pbru7hd" path="res://icon.svg" id="1_o38dn"]
 
 [resource]
 script = ExtResource("1_fxfkm")
@@ -9,4 +10,5 @@ name = "i dont know"
 stackable = true
 base_price = 10
 category = "test_category"
+icon = ExtResource("1_o38dn")
 metadata/_custom_type_script = "uid://cvdsr82qy5srh"

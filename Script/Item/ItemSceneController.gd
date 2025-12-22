@@ -23,5 +23,10 @@ func _process(delta: float) -> void:
 		item.get_behavior(ItemUsableBehavior).apply_effect()
 		print("item behavior base price: ", item.get_behavior(ItemSellableBehavior).base_price)
 		item.get_behavior(ItemSellableBehavior).execute("")
-		item.get_behavior(ItemSellableBehavior).send_to_courier()
-		
+		item.get_behavior(ItemSellableBehavior).send_to_courier()	
+
+func _on_interactable_area_2d_body_entered(body: Node2D) -> void:
+	print("attempting to fetch item :", item.data.name)
+
+	if body.is_in_group("player") || body.name =="Player":
+		print("Player entered area with: ", body.name)

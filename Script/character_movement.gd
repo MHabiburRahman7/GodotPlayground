@@ -7,8 +7,29 @@ extends CharacterBody2D
 @onready var animation_tree = $AnimationTree 
 @onready var state_machine = animation_tree.get("parameters/playback")
 
+##for testing inventory
+#@export var inventory_panel: Control
+#var inventory := Inventory.new()
+#@export var test_item_data: ItemData
+
 func _ready() -> void:
 	_update_animation_param(starting_direction)
+
+	##for testing inventory
+	#inventory.capacity = 10  # test backpack
+	#inventory_panel.bind_inventory(inventory)
+	#inventory_panel.visible = false
+	
+##for testing inventory
+#func _input(event):
+	#if event.is_action_pressed("inventory_toggle"):
+		#inventory_panel.visible = !inventory_panel.visible
+	#
+	#if event.is_action_pressed("ui_accept"):
+		#var item = ItemInstance.new(test_item_data)
+		#inventory.add_item(item)
+		#inventory_panel.refresh()
+
 
 func _physics_process(_delta: float) -> void:
 	var input_vec := Vector2.ZERO
