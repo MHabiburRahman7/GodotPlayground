@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7jxkrb3y1hfr"]
+
+[ext_resource type="Script" uid="uid://cebge0qwy8id4" path="res://Script/Testing/test_scene_with_controller.gd" id="1_nppa3"]
+[ext_resource type="PackedScene" uid="uid://dup7s54vwgrrs" path="res://Scenes/GameControllerUI.tscn" id="1_wgxg7"]
+
+[node name="TestSceneWithController" type="Node"]
+script = ExtResource("1_nppa3")
+
+[node name="GameControllerNode" parent="." instance=ExtResource("1_wgxg7")]

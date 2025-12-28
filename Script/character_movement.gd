@@ -30,6 +30,9 @@ func _ready() -> void:
 		#inventory.add_item(item)
 		#inventory_panel.refresh()
 
+	#lets do this later
+	#add_to_group("player")
+
 
 func _physics_process(_delta: float) -> void:
 	var input_vec := Vector2.ZERO

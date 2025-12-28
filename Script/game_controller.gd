@@ -7,10 +7,33 @@ class_name GameController extends Node
 var current_2d_scene
 var current_gui_scene
 
+@onready var inventory_panel = $GUI/InventoryPanel
+
 func _ready() -> void:
 	print("global_controller_ready")
 	Global.set_game_controller(self)
-	current_gui_scene = $GUI/SplashScreenManager
+	
+	#if it's not production build, skip splash screen
+	if OS.is_debug_build():
+		current_gui_scene = null
+	else:
+		current_gui_scene = $GUI/SplashScreenManager
+	
+
+#to detect existing inventory object in a new scene
+func scan_for_chest() -> void:
+	for chest in get_tree().get_nodes_in_group("chests"):
+		chest.chest_opened.connect(_on_chest_opened)
+		chest.chest_closed.connect(_on_chest_closed)
+		print("chest found and connected")
+
+func _on_chest_opened(inventory: Inventory):
+	inventory_panel.bind_inventory(inventory)
+	inventory_panel.visible = !inventory_panel.visible
+	#inventory_panel.visible = true
+	
+func _on_chest_closed():
+	inventory_panel.visible = false
 
 func change_gui_scene(new_scene: String, 
 	delete: bool = true, 
@@ -63,3 +86,5 @@ func change_2d_scene(new_scene: String,
 	current_2d_scene = temp_new_scene
 	if transition:
 		transition_controller.transition(transition_in, seconds)
+		
+	scan_for_chest()

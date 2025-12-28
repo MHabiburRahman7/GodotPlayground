@@ -39,4 +39,23 @@ remote_path = NodePath("../../Camera2D")
 position = Vector2(627, 245)
 scale = Vector2(0.25, 0.25)
 
-[node name="InventoryPanel" parent="." instance=ExtResource("5_hhl56")]
+[node name="GUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 241.0
+offset_bottom = 157.0
+
+[node name="InventoryPanel" parent="GUI" instance=ExtResource("5_hhl56")]
+visible = false
+layout_mode = 1
+offset_left = -304.0
+offset_top = -134.0
+offset_right = -344.0
+offset_bottom = -174.0
+
+[node name="Button" type="Button" parent="GUI"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 145.0
+offset_right = 12.0
+offset_bottom = 153.0

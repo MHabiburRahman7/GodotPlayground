@@ -20,3 +20,8 @@ func refresh():
 		var slot = slot_scene.instantiate() as InventorySlot
 		slot.set_item(item)
 		grid.add_child(slot)
+
+###for testing inventory
+#func _input(event):
+	#if event.is_action_pressed("inventory_toggle"):
+		#inventory_panel.visible = !inventory_panel.visible
