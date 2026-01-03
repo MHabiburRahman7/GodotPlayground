@@ -1,0 +1,82 @@
+[gd_scene load_steps=3 format=3 uid="uid://bo2d4vgn52tgf"]
+
+[ext_resource type="Script" uid="uid://bss7anmb2m62j" path="res://Script/Inventory/InventoryPanelMaster.gd" id="1_qf8sq"]
+[ext_resource type="PackedScene" uid="uid://bp6x1f63v67xd" path="res://Scenes/Inventory/inventory_panel.tscn" id="3_tv2gv"]
+
+[node name="InventoryPanelMaster" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qf8sq")
+
+[node name="InventoryPanelLeft" parent="." instance=ExtResource("3_tv2gv")]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_right = 0.0
+anchor_bottom = 0.5
+offset_top = -160.0
+offset_right = 480.0
+offset_bottom = 160.0
+grow_horizontal = 1
+
+[node name="TransferControls" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -504.0
+offset_right = 50.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ButtonMoveRight" type="Button" parent="TransferControls"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.5
+offset_top = 48.0
+offset_right = 24.5
+offset_bottom = 79.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Right"
+
+[node name="ButtonMoveLeft" type="Button" parent="TransferControls"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -15.5
+offset_right = 19.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Left"
+
+[node name="InventoryPanelRight" parent="." instance=ExtResource("3_tv2gv")]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -492.0
+offset_top = -160.0
+offset_right = -12.0
+offset_bottom = 160.0
+grow_horizontal = 0
+
+[connection signal="button_down" from="TransferControls/ButtonMoveRight" to="." method="_on_button_to_right_pressed"]
+[connection signal="button_down" from="TransferControls/ButtonMoveLeft" to="." method="_on_button_to_left_pressed"]

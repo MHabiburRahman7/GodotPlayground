@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://du3ln4pbru7hd" path="res://icon.svg" id="1_4lduu"]
 [ext_resource type="Script" uid="uid://cjunkaonb3kgd" path="res://Script/Inventory/InventorySlot.gd" id="1_e2ctm"]
 
-[node name="InventorySlot" type="Control" node_paths=PackedStringArray("this_texture", "this_label")]
+[node name="InventorySlot" type="Control" node_paths=PackedStringArray("icon", "name_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,8 +13,8 @@ offset_bottom = -476.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e2ctm")
-this_texture = NodePath("TextureRect")
-this_label = NodePath("Label")
+icon = NodePath("TextureRect")
+name_label = NodePath("Label")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
@@ -34,3 +34,5 @@ text = "This is an item"
 layout_mode = 0
 offset_right = 131.0
 offset_bottom = 167.0
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
