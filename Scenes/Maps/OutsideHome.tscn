@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=4 uid="uid://q153f26p0e53"]
+[gd_scene load_steps=7 format=4 uid="uid://q153f26p0e53"]
 
 [ext_resource type="TileSet" uid="uid://b20popcun3h8m" path="res://Tilemaps/outer_home.tres" id="1_4id8e"]
 [ext_resource type="PackedScene" uid="uid://cgbb6t0i3qxcv" path="res://Scenes/Cow.tscn" id="2_o50ka"]
 [ext_resource type="PackedScene" uid="uid://byp1qiykpin2b" path="res://Scenes/character_body_2d.tscn" id="3_hhl56"]
 [ext_resource type="PackedScene" uid="uid://d1ergf02eicrj" path="res://Scenes/Items/Sellable/TestItem.tscn" id="4_o50ka"]
+[ext_resource type="PackedScene" uid="uid://c38sthkrjf2bd" path="res://Scenes/Inventory/warehouse_object.tscn" id="5_bd24g"]
 [ext_resource type="PackedScene" uid="uid://bp6x1f63v67xd" path="res://Scenes/Inventory/inventory_panel.tscn" id="5_hhl56"]
 
 [node name="OutsideHome" type="Node2D"]
@@ -38,6 +39,11 @@ remote_path = NodePath("../../Camera2D")
 [node name="TestItem" parent="." instance=ExtResource("4_o50ka")]
 position = Vector2(627, 245)
 scale = Vector2(0.25, 0.25)
+
+[node name="WarehouseObject" parent="." instance=ExtResource("5_bd24g")]
+position = Vector2(102, 48)
+scale = Vector2(0.5, 0.5)
+this_inventory_identity = "warehouse"
 
 [node name="GUI" type="Control" parent="."]
 layout_mode = 3

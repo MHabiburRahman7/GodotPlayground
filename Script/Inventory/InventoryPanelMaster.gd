@@ -14,8 +14,8 @@ var selected_from_left := true
 func _ready() -> void:
 	_prepare_button_signals()
 	
-	_prepare_dummy_inventory()
-	_prepare_dummy_items()
+	#_prepare_dummy_inventory()
+	#_prepare_dummy_items()
 
 #Testing Purpose
 const itemDataResource = preload("res://Resources/Item/TestItem.tres")
@@ -43,6 +43,16 @@ func open(left: Inventory, right: Inventory) -> void:
 
 	panel_left.bind_inventory(inventory_left)
 	panel_right.bind_inventory(inventory_right)
+
+	selected_item = null
+	visible = true
+
+func openv2(left: Inventory, name_left: String, right: Inventory, name_right: String) -> void:
+	inventory_left = left
+	inventory_right = right
+
+	panel_left.bind_inventoryv2(inventory_left, name_left)
+	panel_right.bind_inventoryv2(inventory_right, name_right)
 
 	selected_item = null
 	visible = true

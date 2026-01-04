@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://dup7s54vwgrrs"]
 
 [ext_resource type="Script" uid="uid://b5cf2halu0a2a" path="res://Script/game_controller.gd" id="1_4xms1"]
+[ext_resource type="PackedScene" uid="uid://bo2d4vgn52tgf" path="res://Scenes/Inventory/inventory_panel_master.tscn" id="2_17g4a"]
 [ext_resource type="PackedScene" uid="uid://5hmwd7ueuxwr" path="res://Scenes/UI/Debug.tscn" id="2_x1skj"]
 [ext_resource type="PackedScene" uid="uid://b12xrqypi1xhh" path="res://Scenes/UI/SplashScreenManager.tscn" id="2_y1m20"]
 [ext_resource type="PackedScene" uid="uid://bedtq534nektp" path="res://Scenes/UI/TransitionController.tscn" id="3_6ao8f"]
-[ext_resource type="PackedScene" uid="uid://bp6x1f63v67xd" path="res://Scenes/Inventory/inventory_panel.tscn" id="3_17g4a"]
 
 [node name="GameControllerNode" type="Node" node_paths=PackedStringArray("world_2d", "gui", "transition_controller")]
 script = ExtResource("1_4xms1")
@@ -24,17 +24,11 @@ offset_bottom = 40.0
 process_mode = 4
 layout_mode = 1
 
-[node name="InventoryPanel" parent="GUI" instance=ExtResource("3_17g4a")]
+[node name="CanvasLayer" type="CanvasLayer" parent="GUI"]
+
+[node name="InventoryPanelMaster" parent="GUI/CanvasLayer" instance=ExtResource("2_17g4a")]
 visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 9.05
-anchor_bottom = 5.15
-offset_right = -930.0
-offset_bottom = -434.0
 
 [node name="Debug" parent="." instance=ExtResource("2_x1skj")]
 
 [node name="TransitionController" parent="." instance=ExtResource("3_6ao8f")]
-
-[node name="System" type="Node" parent="."]

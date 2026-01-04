@@ -1,3 +1,5 @@
+extends RefCounted
+
 class_name Inventory
 
 signal item_added(item)

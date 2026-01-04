@@ -3,13 +3,18 @@ class_name InventoryPanel
 
 @export var slot_scene: PackedScene
 @onready var grid := $Panel/GridContainer
+@onready var inventory_label = $Panel/Label
 
 var inventory: Inventory
 signal item_selected(item: ItemInstance)
-signal item_added()
 
 func bind_inventory(inv: Inventory) -> void:
 	inventory = inv
+	refresh()
+
+func bind_inventoryv2(inv: Inventory, name: String) -> void:
+	inventory = inv
+	inventory_label.text = name
 	refresh()
 
 func refresh() -> void:
@@ -32,4 +37,5 @@ func _clear_grid() -> void:
 			child.queue_free()
 
 func _on_slot_pressed(item: ItemInstance) -> void:
+	print("on slot pressed for: ", item.data.name)
 	emit_signal("item_selected", item)

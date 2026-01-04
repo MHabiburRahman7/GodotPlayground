@@ -7,7 +7,7 @@ class_name GameController extends Node
 var current_2d_scene
 var current_gui_scene
 
-@onready var inventory_panel = $GUI/InventoryPanel
+@onready var inventory_panel = $GUI/CanvasLayer/InventoryPanelMaster
 
 func _ready() -> void:
 	print("global_controller_ready")
@@ -23,15 +23,22 @@ func _ready() -> void:
 #to detect existing inventory object in a new scene
 func scan_for_chest() -> void:
 	for chest in get_tree().get_nodes_in_group("chests"):
-		chest.chest_opened.connect(_on_chest_opened)
+		#chest.chest_opened.connect(_on_chest_opened)
+		#chest.chest_openedv2.connect(_on_chest_openedv2)
+		chest.chest_openedv3.connect(_on_chest_openedv3)
 		chest.chest_closed.connect(_on_chest_closed)
 		print("chest found and connected")
 
 func _on_chest_opened(inventory: Inventory):
 	inventory_panel.bind_inventory(inventory)
 	inventory_panel.visible = !inventory_panel.visible
-	#inventory_panel.visible = true
+
+func _on_chest_openedv2(inventory_left: Inventory, inventory_right: Inventory) -> void:
+	inventory_panel.open(inventory_left, inventory_right)
 	
+func _on_chest_openedv3(inventory_left: Inventory, name_left: String, inventory_right: Inventory, name_right: String) -> void:
+	inventory_panel.openv2(inventory_left, name_left, inventory_right, name_right)
+
 func _on_chest_closed():
 	inventory_panel.visible = false
 
