@@ -18,7 +18,7 @@ func _ready() -> void:
 		current_gui_scene = null
 	else:
 		current_gui_scene = $GUI/SplashScreenManager
-	
+		
 
 #to detect existing inventory object in a new scene
 func scan_for_chest() -> void:

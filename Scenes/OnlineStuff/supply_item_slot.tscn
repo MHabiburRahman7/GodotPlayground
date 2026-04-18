@@ -1,0 +1,85 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3w67qfhgsajb"]
+
+[ext_resource type="Script" uid="uid://btatq2dhm8vc2" path="res://Script/OnlineStuff/PhoneUI/SupplyItemSlot.gd" id="1_0y0rk"]
+[ext_resource type="Texture2D" uid="uid://du3ln4pbru7hd" path="res://icon.svg" id="1_800bx"]
+
+[node name="SupplyItemSlot" type="Control" node_paths=PackedStringArray("icon", "name_label", "price_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1018.0
+offset_bottom = -476.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0y0rk")
+icon = NodePath("Background/Icon")
+name_label = NodePath("Background/ItemName")
+price_label = NodePath("Background/ItemPrice")
+
+[node name="Background" type="Panel" parent="."]
+custom_minimum_size = Vector2(134, 172)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ItemName" type="Label" parent="Background"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -28.0
+offset_right = 44.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Item Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemPrice" type="Label" parent="Background"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -50.0
+offset_right = 44.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Rp.1000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Icon" type="TextureRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -53.5
+offset_top = 10.0
+offset_right = 53.5
+offset_bottom = 112.0
+grow_horizontal = 2
+texture = ExtResource("1_800bx")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[connection signal="pressed" from="Background/Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,80 @@
+[gd_scene load_steps=2 format=3 uid="uid://iqfojbl0mc0h"]
+
+[ext_resource type="Script" uid="uid://co0rablb6ahed" path="res://Script/OnlineStuff/PhoneUI/InboxItemSlot.gd" id="1_0fm4l"]
+
+[node name="InboxItemSlot" type="Control" node_paths=PackedStringArray("sender_label", "message_title_label", "date_label")]
+custom_minimum_size = Vector2(600, 80)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -552.0
+offset_bottom = -568.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0fm4l")
+sender_label = NodePath("Background/SenderLabel")
+message_title_label = NodePath("Background/MessageTitle")
+date_label = NodePath("Background/MessageTime")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FromLabel" type="Label" parent="Background"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 8.0
+offset_right = 60.0
+offset_bottom = 32.0
+text = "From: "
+
+[node name="SenderLabel" type="Label" parent="Background"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 8.0
+offset_right = 286.0
+offset_bottom = 31.0
+text = "Rabo"
+
+[node name="MessageTitle" type="Label" parent="Background"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = -42.0
+offset_right = 237.0
+offset_bottom = -19.0
+grow_vertical = 0
+text = "I want Omelete"
+
+[node name="MessageTime" type="Label" parent="Background"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -100.0
+offset_top = 10.0
+offset_right = -14.0
+offset_bottom = 70.0
+grow_horizontal = 0
+text = "Day 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[connection signal="pressed" from="Background/Button" to="." method="_on_button_pressed"]
