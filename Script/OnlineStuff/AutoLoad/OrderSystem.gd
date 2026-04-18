@@ -35,8 +35,8 @@ func start_auto_orders() -> void:
 	_spawn_loop()
 
 # ---- For testing purpose -------------------------------------
-#func _ready() -> void:
-#	start_auto_orders()
+func _ready() -> void:
+	start_auto_orders()
 
 func _spawn_loop() -> void:
 	var timer = get_tree().create_timer(randf_range(6.0, 12.0))
