@@ -1,0 +1,49 @@
+# ==============================
+# Godot 4.x project
+# ==============================
+
+# Godot-specific generated files
+.godot/
+.import/
+build/
+
+# Export templates and temporary configs
+export.cfg
+export_presets.cfg
+export_user.cfg
+export_credentials.cfg
+
+# Mono/C# artifacts
+bin/
+obj/
+.mono/
+*.userprefs
+*.user
+*.vsconfig
+*.csproj
+*.sln
+*.pidb
+*.booproj
+*.suo
+*.cache
+*.ideavimrc
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE/editor folders
+.vscode/
+.idea/
+
+# Logs and temp files
+*.log
+*.tmp
+*.bak
+*.old
+*.swp
+
+# Other ignores
+*.translation
+*.import
