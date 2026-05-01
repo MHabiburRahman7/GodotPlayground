@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://djtoaoru4q0dw"]
 
 [ext_resource type="Script" uid="uid://cnbmdqbpinqma" path="res://Script/OnlineStuff/PhoneUI/Phone.gd" id="1_4gy4l"]
-[ext_resource type="PackedScene" uid="uid://iqfojbl0mc0h" path="res://Scenes/OnlineStuff/inbox_item_slot.tscn" id="2_duevd"]
-[ext_resource type="Script" uid="uid://dy1c4w55kvbie" path="res://Script/OnlineStuff/PhoneUI/SupplyTab.gd" id="2_thidx"]
-[ext_resource type="Script" uid="uid://dhx8rog7arnyu" path="res://Script/OnlineStuff/PhoneUI/InboxTab.gd" id="4_qq3j2"]
+[ext_resource type="PackedScene" uid="uid://bgwdoa40bopmv" path="res://Scenes/OnlineStuff/MobilePhoneTabs/SupplyTab.tscn" id="2_qq3j2"]
+[ext_resource type="PackedScene" uid="uid://detjvajcgqnxy" path="res://Scenes/OnlineStuff/MobilePhoneTabs/StoreTab.tscn" id="3_vrq4o"]
+[ext_resource type="PackedScene" uid="uid://cydtdih2bic7f" path="res://Scenes/OnlineStuff/MobilePhoneTabs/InboxTab.tscn" id="4_63y63"]
 
 [node name="MobilePhoneUI" type="Control"]
 layout_mode = 3
@@ -61,64 +61,18 @@ text = "X"
 
 [node name="Tabs" type="TabContainer" parent="Background/Margin/Layout"]
 layout_mode = 2
-current_tab = 2
+current_tab = 0
 
-[node name="SupplyTab" type="Control" parent="Background/Margin/Layout/Tabs"]
-visible = false
+[node name="SupplyTab" parent="Background/Margin/Layout/Tabs" instance=ExtResource("2_qq3j2")]
 layout_mode = 2
-script = ExtResource("2_thidx")
 metadata/_tab_index = 0
 
-[node name="SupplyGrid" type="GridContainer" parent="Background/Margin/Layout/Tabs/SupplyTab"]
-clip_contents = true
-custom_minimum_size = Vector2(130, 164)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = 488.0
-grow_horizontal = 2
-grow_vertical = 2
-columns = 4
-
-[node name="StoreTab" type="Control" parent="Background/Margin/Layout/Tabs"]
+[node name="StoreTab" parent="Background/Margin/Layout/Tabs" instance=ExtResource("3_vrq4o")]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="StoreItem" type="VBoxContainer" parent="Background/Margin/Layout/Tabs/StoreTab"]
-clip_contents = true
-custom_minimum_size = Vector2(600, 80)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -3.0
-offset_top = -2.0
-offset_right = -3.0
-offset_bottom = 486.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="InboxTab" type="Control" parent="Background/Margin/Layout/Tabs"]
+[node name="InboxTab" parent="Background/Margin/Layout/Tabs" instance=ExtResource("4_63y63")]
+visible = false
 layout_mode = 2
-script = ExtResource("4_qq3j2")
 metadata/_tab_index = 2
-
-[node name="OrderList" type="VBoxContainer" parent="Background/Margin/Layout/Tabs/InboxTab"]
-custom_minimum_size = Vector2(600, 80)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="InboxItemSlot" parent="Background/Margin/Layout/Tabs/InboxTab/OrderList" instance=ExtResource("2_duevd")]
-visible = false
-layout_mode = 2
-
-[node name="InboxItemSlot2" parent="Background/Margin/Layout/Tabs/InboxTab/OrderList" instance=ExtResource("2_duevd")]
-visible = false
-layout_mode = 2
-
-[node name="InboxItemSlot3" parent="Background/Margin/Layout/Tabs/InboxTab/OrderList" instance=ExtResource("2_duevd")]
-visible = false
-layout_mode = 2

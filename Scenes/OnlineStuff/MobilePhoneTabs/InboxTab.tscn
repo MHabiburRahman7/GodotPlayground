@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://cydtdih2bic7f"]
+
+[ext_resource type="Script" uid="uid://dhx8rog7arnyu" path="res://Script/OnlineStuff/PhoneUI/InboxTab.gd" id="1_ppdbd"]
+
+[node name="InboxTab" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ppdbd")
+
+[node name="OrderList" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(600, 80)
+layout_mode = 0
+offset_right = 600.0
+offset_bottom = 80.0

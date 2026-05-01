@@ -2,7 +2,7 @@ extends Control
 
 signal message_selected(message: MessageInstance)
 
-const INBOX_ITEM_SLOT_SCENE: PackedScene = preload("res://Scenes/OnlineStuff/inbox_item_slot.tscn")
+const INBOX_ITEM_SLOT_SCENE: PackedScene = preload("res://Scenes/OnlineStuff/ChildItems/inbox_item_slot.tscn")
 
 @onready var list: VBoxContainer = $OrderList
 var _inbox_system: InboxSystem = null
