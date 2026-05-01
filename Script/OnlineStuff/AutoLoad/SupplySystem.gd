@@ -1,4 +1,8 @@
 extends Node
+
+# Provides supply ordering for packaging materials requested by the mobile phone UI.
+# Maintains a lightweight catalog, emits signals when deliveries are requested or arrive,
+# and schedules simulated delivery timers so order packing can stay stocked.
 class_name SupplySystem
 
 signal item_ordered(item_id, amount)

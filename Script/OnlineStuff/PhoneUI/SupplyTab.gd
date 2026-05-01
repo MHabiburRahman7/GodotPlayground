@@ -6,7 +6,7 @@ var supply_system: SupplySystem = null
 func _ready():
 	supply_system = _get_supply_system()
 	if not supply_system:
-		push_warning("SupplySystemSingleton not available")
+		print("SupplySystemSingleton not available; supply tab disabled")
 		return
 
 	supply_system.item_arrived.connect(_on_item_arrived)

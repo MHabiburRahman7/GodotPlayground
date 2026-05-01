@@ -1,5 +1,8 @@
 extends Node
 
+# Manages the inbox messaging pipeline for the mobile phone UI.
+# Listens to OrderSystem events, builds timestamped MessageInstance entries with NPC senders,
+# and emits signals whenever messages change so the UI can rebuild its slots.
 class_name InboxSystem
 
 signal message_added(message: MessageInstance)

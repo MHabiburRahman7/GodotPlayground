@@ -1,5 +1,7 @@
 extends Node
 
+# Handles the order lifecycle used by the mobile phone systems and game manager.
+# Creates orders, tracks their state transitions, and emits notifications so other systems can react.
 class_name OrderSystem
 
 signal order_created(order: Order, event_label: String)
@@ -35,8 +37,8 @@ func start_auto_orders() -> void:
 	_spawn_loop()
 
 # ---- For testing purpose -------------------------------------
-func _ready() -> void:
-	start_auto_orders()
+#func _ready() -> void:
+#	start_auto_orders()
 
 func _spawn_loop() -> void:
 	var timer = get_tree().create_timer(randf_range(6.0, 12.0))
