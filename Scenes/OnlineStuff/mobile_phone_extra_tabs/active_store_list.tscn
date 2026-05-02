@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://qsc6d4foc2qc"]
+
+[ext_resource type="PackedScene" uid="uid://iio8w035bs6" path="res://Scenes/OnlineStuff/mobile_phone_extra_tabs/upload_item_to_store_form.tscn" id="1_uxmas"]
+[ext_resource type="Script" uid="uid://qybici1uyhgf" path="res://Script/OnlineStuff/PhoneUI/active_store_list_contoller.gd" id="1_xgno4"]
+[ext_resource type="PackedScene" uid="uid://bq7pwicfndw55" path="res://Scenes/OnlineStuff/mobile_phone_extra_tabs/store_listing.tscn" id="3_aknta"]
+
+[node name="ActiveStoreList" type="Control" node_paths=PackedStringArray("_upload_form", "_store_listing")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+script = ExtResource("1_xgno4")
+_upload_form = NodePath("UploadItemToStoreForm")
+_store_listing = NodePath("StoreListing")
+
+[node name="UploadItemToStoreForm" parent="." instance=ExtResource("1_uxmas")]
+visible = false
+layout_mode = 1
+
+[node name="StoreListing" parent="." instance=ExtResource("3_aknta")]
+visible = false
+layout_mode = 1

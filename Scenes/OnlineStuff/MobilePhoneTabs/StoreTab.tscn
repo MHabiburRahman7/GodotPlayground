@@ -4,89 +4,94 @@
 
 [node name="StoreTab" type="Control"]
 layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 651.0
+grow_horizontal = 2
+script = ExtResource("1_pyyq8")
+
+[node name="StoreColumn" type="VBoxContainer" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_pyyq8")
-
-[node name="StoreColumn" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = -3.0
-offset_top = -2.0
-offset_right = -3.0
-offset_bottom = 486.0
-size_flags_horizontal = 2
-size_flags_vertical = 2
+size_flags_horizontal = 3
 theme_override_constants/separation = 8
 
-[node name="StoreListScroll" type="ScrollContainer" parent="StoreColumn"]
-custom_minimum_size = Vector2(0, 220)
-layout_mode = 2
-size_flags_horizontal = 2
-size_flags_vertical = 2
-
-[node name="StoreList" type="VBoxContainer" parent="StoreColumn/StoreListScroll"]
-layout_mode = 2
-size_flags_horizontal = 2
-
 [node name="UploadButton" type="Button" parent="StoreColumn"]
+custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Upload item"
 
-[node name="StoreForm" type="PanelContainer" parent="StoreColumn"]
+[node name="StoreViewPanel" type="PanelContainer" parent="StoreColumn"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="StoreListScroll" type="ScrollContainer" parent="StoreColumn/StoreViewPanel"]
+custom_minimum_size = Vector2(0, 220)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StoreList" type="VBoxContainer" parent="StoreColumn/StoreViewPanel/StoreListScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="StoreForm" type="PanelContainer" parent="StoreColumn/StoreViewPanel"]
 visible = false
 custom_minimum_size = Vector2(0, 260)
 layout_mode = 2
 size_flags_horizontal = 2
 
-[node name="StoreFormContent" type="VBoxContainer" parent="StoreColumn/StoreForm"]
+[node name="StoreFormContent" type="VBoxContainer" parent="StoreColumn/StoreViewPanel/StoreForm"]
 layout_mode = 2
 size_flags_horizontal = 2
 theme_override_constants/separation = 6
 
-[node name="FormTitle" type="Label" parent="StoreColumn/StoreForm/StoreFormContent"]
+[node name="FormTitle" type="Label" parent="StoreColumn/StoreViewPanel/StoreForm/StoreFormContent"]
 layout_mode = 2
 text = "Upload store item"
 
-[node name="CloseFormButton" type="Button" parent="StoreColumn/StoreForm/StoreFormContent"]
+[node name="CloseFormButton" type="Button" parent="StoreColumn/StoreViewPanel/StoreForm/StoreFormContent"]
 layout_mode = 2
 text = "Close form"
 
-[node name="NameLabel" type="Label" parent="StoreColumn/StoreForm/StoreFormContent"]
+[node name="NameLabel" type="Label" parent="StoreColumn/StoreViewPanel/StoreForm/StoreFormContent"]
 layout_mode = 2
 text = "Item to be sold name"
 
-[node name="NameInput" type="LineEdit" parent="StoreColumn/StoreForm/StoreFormContent"]
+[node name="NameInput" type="LineEdit" parent="StoreColumn/StoreViewPanel/StoreForm/StoreFormContent"]
 layout_mode = 2
 size_flags_horizontal = 2
 
-[node name="PriceLabel" type="Label" parent="StoreColumn/StoreForm/StoreFormContent"]
+[node name="PriceLabel" type="Label" parent="StoreColumn/StoreViewPanel/StoreForm/StoreFormContent"]
 layout_mode = 2
 text = "Item to be sold price"
 
-[node name="PriceInput" type="SpinBox" parent="StoreColumn/StoreForm/StoreFormContent"]
+[node name="PriceInput" type="SpinBox" parent="StoreColumn/StoreViewPanel/StoreForm/StoreFormContent"]
 layout_mode = 2
 size_flags_horizontal = 2
 min_value = 0.01
 step = 0.25
 value = 1.01
 
-[node name="SpriteLabel" type="Label" parent="StoreColumn/StoreForm/StoreFormContent"]
+[node name="SpriteLabel" type="Label" parent="StoreColumn/StoreViewPanel/StoreForm/StoreFormContent"]
 layout_mode = 2
 text = "Item to be sold sprite"
 
-[node name="SpriteInput" type="LineEdit" parent="StoreColumn/StoreForm/StoreFormContent"]
+[node name="SpriteInput" type="LineEdit" parent="StoreColumn/StoreViewPanel/StoreForm/StoreFormContent"]
 layout_mode = 2
 size_flags_horizontal = 2
 
-[node name="RegisterButton" type="Button" parent="StoreColumn/StoreForm/StoreFormContent"]
+[node name="RegisterButton" type="Button" parent="StoreColumn/StoreViewPanel/StoreForm/StoreFormContent"]
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Register item"
 
-[node name="StatusLabel" type="Label" parent="StoreColumn/StoreForm/StoreFormContent"]
+[node name="StatusLabel" type="Label" parent="StoreColumn/StoreViewPanel/StoreForm/StoreFormContent"]
 layout_mode = 2
 size_flags_horizontal = 2

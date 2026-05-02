@@ -1,26 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://4yig7uld5q8o"]
+[gd_scene load_steps=4 format=3 uid="uid://4yig7uld5q8o"]
 
+[ext_resource type="Script" uid="uid://d3mca4r5r3li7" path="res://Script/OnlineStuff/PhoneUI/StoreItemSlot.gd" id="1_7qkh4"]
 [ext_resource type="Texture2D" uid="uid://du3ln4pbru7hd" path="res://icon.svg" id="1_8ud7l"]
 
-[node name="ShopItemSlot" type="Control"]
-custom_minimum_size = Vector2(600, 80)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7qkh4"]
+bg_color = Color(0.7729621, 0.49842066, 0.6716105, 1)
+
+[node name="StoreItemSlot" type="Control"]
+custom_minimum_size = Vector2(600, 160)
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -552.0
-offset_bottom = -529.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_right = 600.0
+offset_bottom = 157.0
+script = ExtResource("1_7qkh4")
 
 [node name="Background" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = 41.0
+offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7qkh4")
 
 [node name="ItemNameLabel" type="Label" parent="Background"]
 layout_mode = 0

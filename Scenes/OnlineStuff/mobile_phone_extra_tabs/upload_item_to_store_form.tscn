@@ -1,0 +1,129 @@
+[gd_scene load_steps=2 format=3 uid="uid://iio8w035bs6"]
+
+[ext_resource type="Script" uid="uid://btbrm4vkjey17" path="res://Script/OnlineStuff/PhoneUI/upload_item_to_store_form.gd" id="1_0loyw"]
+
+[node name="UploadItemToStoreForm" type="Control" node_paths=PackedStringArray("_name_input", "_price_input", "_qty_input", "_image_path_input", "_status_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0loyw")
+_name_input = NodePath("Container/ItemName/TextValue")
+_price_input = NodePath("Container/Price/TextValue")
+_qty_input = NodePath("Container/Qty/TextValue")
+_image_path_input = NodePath("Container/ImagePath/TextValue")
+_status_label = NodePath("Container/StatusLabel")
+
+[node name="Container" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="TitleLabel" type="Label" parent="Container"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
+text = "Upload Item Form"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemName" type="VBoxContainer" parent="Container"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="TextLabel" type="Label" parent="Container/ItemName"]
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_font_sizes/font_size = 18
+text = "Item Name"
+
+[node name="TextValue" type="TextEdit" parent="Container/ItemName"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 18
+placeholder_text = "input your product name"
+wrap_mode = 1
+
+[node name="Price" type="VBoxContainer" parent="Container"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="TextLabel" type="Label" parent="Container/Price"]
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_font_sizes/font_size = 18
+text = "Price"
+
+[node name="TextValue" type="TextEdit" parent="Container/Price"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 18
+placeholder_text = "input your product price"
+wrap_mode = 1
+
+[node name="Qty" type="VBoxContainer" parent="Container"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="TextLabel" type="Label" parent="Container/Qty"]
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_font_sizes/font_size = 18
+text = "Quantity"
+
+[node name="TextValue" type="TextEdit" parent="Container/Qty"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 18
+placeholder_text = "input your product quantity"
+wrap_mode = 1
+
+[node name="ImagePath" type="VBoxContainer" parent="Container"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="TextLabel" type="Label" parent="Container/ImagePath"]
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_font_sizes/font_size = 18
+text = "Image Path"
+
+[node name="TextValue" type="TextEdit" parent="Container/ImagePath"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 18
+placeholder_text = "input your product image path"
+wrap_mode = 1
+
+[node name="StatusLabel" type="Label" parent="Container"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1
+
+[node name="SubmitButton" type="Button" parent="Container"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_vertical = 8
+text = "SUBMIT"
+
+[node name="CancelButton" type="Button" parent="Container"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_vertical = 8
+text = "Cancel"
+
+[connection signal="pressed" from="Container/SubmitButton" to="." method="_on_submit_button_pressed"]
+[connection signal="pressed" from="Container/CancelButton" to="." method="_on_cancel_button_pressed"]

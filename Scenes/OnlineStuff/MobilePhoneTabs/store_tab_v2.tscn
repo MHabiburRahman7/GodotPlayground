@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://1tywjdur4a56"]
+
+[ext_resource type="PackedScene" uid="uid://qsc6d4foc2qc" path="res://Scenes/OnlineStuff/mobile_phone_extra_tabs/active_store_list.tscn" id="1_37rgn"]
+
+[node name="StoreTabV2" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StoreColumn" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="QuickAction" type="HBoxContainer" parent="StoreColumn"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+alignment = 1
+
+[node name="UploadButton" type="Button" parent="StoreColumn/QuickAction"]
+layout_mode = 2
+text = "Upload Product"
+
+[node name="UploadButton2" type="Button" parent="StoreColumn/QuickAction"]
+layout_mode = 2
+text = "Delete Product"
+
+[node name="ActiveStoreList" parent="StoreColumn" instance=ExtResource("1_37rgn")]
+layout_mode = 2
