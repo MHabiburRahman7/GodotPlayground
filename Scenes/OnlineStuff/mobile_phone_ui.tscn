@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://djtoaoru4q0dw"]
 
-[ext_resource type="Script" uid="uid://cnbmdqbpinqma" path="res://Script/OnlineStuff/PhoneUI/Phone.gd" id="1_4gy4l"]
+[ext_resource type="Script" uid="uid://dhnvhmvqbkc3y" path="res://Script/OnlineStuff/PhoneUI/mobile_phone_ui.gd" id="1_sdfb3"]
 [ext_resource type="PackedScene" uid="uid://bgwdoa40bopmv" path="res://Scenes/OnlineStuff/MobilePhoneTabs/SupplyTab.tscn" id="2_qq3j2"]
 [ext_resource type="PackedScene" uid="uid://1tywjdur4a56" path="res://Scenes/OnlineStuff/MobilePhoneTabs/store_tab_v2.tscn" id="3_thidx"]
 [ext_resource type="PackedScene" uid="uid://cydtdih2bic7f" path="res://Scenes/OnlineStuff/MobilePhoneTabs/InboxTab.tscn" id="4_63y63"]
@@ -12,7 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_4gy4l")
+script = ExtResource("1_sdfb3")
 
 [node name="Background" type="Panel" parent="."]
 layout_mode = 1
@@ -62,14 +62,14 @@ text = "X"
 [node name="Tabs" type="TabContainer" parent="Background/Margin/Layout"]
 layout_mode = 2
 size_flags_vertical = 3
-current_tab = 1
+current_tab = 0
 
 [node name="SupplyTab" parent="Background/Margin/Layout/Tabs" instance=ExtResource("2_qq3j2")]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
 [node name="StoreTabV2" parent="Background/Margin/Layout/Tabs" instance=ExtResource("3_thidx")]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 

@@ -1,5 +1,5 @@
 extends Node
-class_name StoreListingController
+class_name StoreListing
 @export var _store_list_container: VBoxContainer
 # Packed scene for displaying each store entry
 const STORE_ITEM_SLOT_SCENE: PackedScene = preload(

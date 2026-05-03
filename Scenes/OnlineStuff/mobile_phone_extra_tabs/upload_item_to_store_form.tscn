@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://iio8w035bs6"]
 
-[ext_resource type="Script" uid="uid://cdgf5ukaj2wum" path="res://Script/OnlineStuff/PhoneUI/upload_item_to_store_form_controller.gd" id="1_0loyw"]
+[ext_resource type="Script" uid="uid://cdgf5ukaj2wum" path="res://Script/OnlineStuff/PhoneUI/upload_item_to_store_form.gd" id="1_0loyw"]
 
 [node name="UploadItemToStoreForm" type="Control" node_paths=PackedStringArray("_name_input", "_price_input", "_qty_input", "_image_path_input", "_status_label")]
 layout_mode = 3

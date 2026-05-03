@@ -3,10 +3,10 @@ class_name StoreTabV2
 
 @export var _active_store_list : Control
 
-var _active_store_list_ctrl : ActiveStoreListController
+var _active_store_list_ctrl : ActiveStoreList
 
 func _ready() -> void:
-	_active_store_list_ctrl = _active_store_list as ActiveStoreListController
+	_active_store_list_ctrl = _active_store_list as ActiveStoreList
 
 func _on_upload_button_pressed() -> void:
 	_active_store_list_ctrl.change_to_upload_view()

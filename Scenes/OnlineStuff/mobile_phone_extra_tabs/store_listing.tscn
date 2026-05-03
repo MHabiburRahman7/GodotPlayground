@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bq7pwicfndw55"]
 
-[ext_resource type="Script" uid="uid://bshntopf1np1c" path="res://Script/OnlineStuff/PhoneUI/store_listing_controller.gd" id="1_yu7cy"]
+[ext_resource type="Script" uid="uid://bshntopf1np1c" path="res://Script/OnlineStuff/PhoneUI/store_listing.gd" id="1_yu7cy"]
 
 [node name="StoreListing" type="Control" node_paths=PackedStringArray("_store_list_container")]
 layout_mode = 3

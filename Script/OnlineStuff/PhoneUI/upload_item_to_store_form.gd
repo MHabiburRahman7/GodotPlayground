@@ -1,5 +1,5 @@
 extends Control
-class_name UploadItemToStoreFormController
+class_name UploadItemToStoreForm
 
 signal submitted(entry: StoreItemEntry)
 signal cancelled()

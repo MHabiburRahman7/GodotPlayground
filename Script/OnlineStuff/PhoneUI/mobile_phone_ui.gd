@@ -1,5 +1,5 @@
 extends Control
-
+class_name MobilePhoneUI
 @onready var tabs = $Background/Margin/Layout/Tabs
 
 func open():

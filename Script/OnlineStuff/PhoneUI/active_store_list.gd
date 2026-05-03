@@ -1,4 +1,4 @@
-class_name ActiveStoreListController
+class_name ActiveStoreList
 extends Control
 
 #Id 0 fpr nothing
@@ -18,7 +18,7 @@ enum ViewState {
 }
 
 func _ready() -> void:
-	var _upload_form_ctrl = _upload_form as UploadItemToStoreFormController
+	var _upload_form_ctrl = _upload_form as UploadItemToStoreForm
 	_upload_form_ctrl.submitted.connect(Callable(self, "_on_form_done"))
 	_upload_form_ctrl.cancelled.connect(Callable(self, "_on_form_done"))
 
