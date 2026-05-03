@@ -4,6 +4,7 @@ class_name StoreItemSlot
 # Node references
 @onready var name_label: Label = $Background/ItemNameValue
 @onready var price_label: Label = $Background/PriceValue
+@onready var qty_label: Label = $Background/QtyValue
 @onready var sprite_node: Sprite2D = $Background/ItemSprite
 
 var entry: StoreItemEntry = null
@@ -14,6 +15,7 @@ func set_entry(item_entry: StoreItemEntry) -> void:
 	entry = item_entry
 	name_label.text = entry.display_name
 	price_label.text = "$%.2f" % entry.price
+	qty_label.text = "%d" % entry.qty
 	if entry.sprite_path != "":
 		var tex := load(entry.sprite_path)
 		if tex is Texture2D:
@@ -22,8 +24,6 @@ func set_entry(item_entry: StoreItemEntry) -> void:
 			sprite_node.texture = null
 	else:
 		sprite_node.texture = null
-	
-	print("Item ", entry.display_name," Is Created")
 
 func clear() -> void:
 	entry = null

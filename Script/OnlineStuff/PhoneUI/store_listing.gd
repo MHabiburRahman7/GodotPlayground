@@ -5,22 +5,22 @@ class_name StoreListing
 const STORE_ITEM_SLOT_SCENE: PackedScene = preload(
     "res://Scenes/OnlineStuff/ChildItems/store_item_slot.tscn"
 )
-var _store_system: StoreSystem = null
+@export var store_system_path: NodePath = "/root/StoreSystemSingleton"
+@onready var _store_system: StoreSystem = get_node(store_system_path) as StoreSystem
+
 func _ready() -> void:
-	# Grab the StoreSystem singleton (or create a local one if missing)
-	if Engine.has_singleton("StoreSystemSingleton"):
-		_store_system = Engine.get_singleton("StoreSystemSingleton") as StoreSystem
-	else:
-		push_warning("StoreListingController: StoreSystemSingleton not available; creating fallback.")
-		_store_system = StoreSystem.new()
-		add_child(_store_system)
+	if _store_system == null:
+		push_warning("UploadItemToStoreForm: StoreSystemSingleton not found")
+		
 	# When a new item is registered, re‑populate the list
 	_store_system.connect("store_item_registered", Callable(self, "refresh_list"))
 	# Initial fill
 	refresh_list()
+
 func initialize() -> void:
 	# Alias for external callers to trigger the initial refresh
 	refresh_list()
+
 func refresh_list() -> void:
 	# Clear out any existing slots
 	for child in _store_list_container.get_children():
@@ -37,6 +37,8 @@ func refresh_list() -> void:
 		var slot := STORE_ITEM_SLOT_SCENE.instantiate() as StoreItemSlot
 		_store_list_container.add_child(slot)
 		slot.set_entry(entry)
+		print("ActiveStoreList: populated store item ", entry.display_name)
+		
 func _add_new_item() -> void:
 	# (Optional stub for programmatic additions)
 	pass

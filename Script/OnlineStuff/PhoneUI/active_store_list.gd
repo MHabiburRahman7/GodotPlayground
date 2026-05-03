@@ -19,8 +19,10 @@ enum ViewState {
 
 func _ready() -> void:
 	var _upload_form_ctrl = _upload_form as UploadItemToStoreForm
-	_upload_form_ctrl.submitted.connect(Callable(self, "_on_form_done"))
-	_upload_form_ctrl.cancelled.connect(Callable(self, "_on_form_done"))
+
+	#Godot 4 explicit
+	#it is similar if we remove the "Callable" part
+	_upload_form_ctrl.store_item_submission_done.connect(Callable(self, "_on_form_done"))
 
 	# Start in the list view
 	change_to_list_view()

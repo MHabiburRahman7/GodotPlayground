@@ -16,7 +16,7 @@ var _next_id: int = 1
 func _ready() -> void:
 	_load_catalog()
 
-func register_item(name: String, price: float, sprite_path: String) -> StoreItemEntry:
+func register_item(name: String, price: float, qty: int, sprite_path: String) -> StoreItemEntry:
 	var cleaned_name: String = name.strip_edges()
 	if cleaned_name == "":
 		push_warning("Attempted to register a store item without a name.")
@@ -27,10 +27,11 @@ func register_item(name: String, price: float, sprite_path: String) -> StoreItem
 	entry.price = price
 	entry.sprite_path = sprite_path.strip_edges()
 	entry.created_at = _current_timestamp()
+	entry.qty = qty
 	_next_id += 1
 	catalog.append(entry)
 	_save_catalog()
-	emit_signal("store_item_registered", entry)
+	emit_signal("store_item_registered")
 	return entry
 
 func get_item_by_name(name: String) -> StoreItemEntry:
@@ -70,6 +71,7 @@ func _load_catalog() -> void:
 		entry.id = int(entry_data.get("id", _next_id))
 		entry.display_name = str(entry_data.get("display_name", ""))
 		entry.price = float(entry_data.get("price", 0.0))
+		entry.qty = int(entry_data.get("qty", 0))
 		entry.sprite_path = str(entry_data.get("sprite_path", ""))
 		entry.created_at = str(entry_data.get("created_at", _current_timestamp()))
 		catalog.append(entry)
@@ -81,6 +83,7 @@ func _save_catalog() -> void:
 			"id": entry.id,
 			"display_name": entry.display_name,
 			"price": entry.price,
+			"qty": entry.qty,
 			"sprite_path": entry.sprite_path,
 			"created_at": entry.created_at,
 		})
