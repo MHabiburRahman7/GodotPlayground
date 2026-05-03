@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cnbmdqbpinqma" path="res://Script/OnlineStuff/PhoneUI/Phone.gd" id="1_4gy4l"]
 [ext_resource type="PackedScene" uid="uid://bgwdoa40bopmv" path="res://Scenes/OnlineStuff/MobilePhoneTabs/SupplyTab.tscn" id="2_qq3j2"]
-[ext_resource type="PackedScene" uid="uid://detjvajcgqnxy" path="res://Scenes/OnlineStuff/MobilePhoneTabs/StoreTab.tscn" id="3_vrq4o"]
+[ext_resource type="PackedScene" uid="uid://1tywjdur4a56" path="res://Scenes/OnlineStuff/MobilePhoneTabs/store_tab_v2.tscn" id="3_thidx"]
 [ext_resource type="PackedScene" uid="uid://cydtdih2bic7f" path="res://Scenes/OnlineStuff/MobilePhoneTabs/InboxTab.tscn" id="4_63y63"]
 
 [node name="MobilePhoneUI" type="Control"]
@@ -61,14 +61,15 @@ text = "X"
 
 [node name="Tabs" type="TabContainer" parent="Background/Margin/Layout"]
 layout_mode = 2
-current_tab = 0
+size_flags_vertical = 3
+current_tab = 1
 
 [node name="SupplyTab" parent="Background/Margin/Layout/Tabs" instance=ExtResource("2_qq3j2")]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="StoreTab" parent="Background/Margin/Layout/Tabs" instance=ExtResource("3_vrq4o")]
-visible = false
+[node name="StoreTabV2" parent="Background/Margin/Layout/Tabs" instance=ExtResource("3_thidx")]
 layout_mode = 2
 metadata/_tab_index = 1
 

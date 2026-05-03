@@ -22,7 +22,9 @@ Global="*res://Script/Global.gd"
 InventorySystemSingleton="*res://Script/Inventory/InventorySystem.gd"
 OrderSystemSingleton="*res://Script/OnlineStuff/AutoLoad/OrderSystem.gd"
 SupplySystemSingleton="*res://Script/OnlineStuff/AutoLoad/SupplySystem.gd"
+StoreSystemSingleton="*res://Script/OnlineStuff/AutoLoad/StoreSystem.gd"
 InboxSystemSingleton="*res://Script/OnlineStuff/Manager/InboxSystem.gd"
+PersistenceManager="*res://Script/Utils/PersistenceManager.gd"
 
 [display]
 

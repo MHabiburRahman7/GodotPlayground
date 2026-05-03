@@ -1,14 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://1tywjdur4a56"]
+[gd_scene load_steps=3 format=3 uid="uid://1tywjdur4a56"]
 
 [ext_resource type="PackedScene" uid="uid://qsc6d4foc2qc" path="res://Scenes/OnlineStuff/mobile_phone_extra_tabs/active_store_list.tscn" id="1_37rgn"]
+[ext_resource type="Script" uid="uid://iobm1t7ps0ep" path="res://Script/OnlineStuff/PhoneUI/store_tab_v2.gd" id="1_psa0r"]
 
-[node name="StoreTabV2" type="Control"]
+[node name="StoreTabV2" type="Control" node_paths=PackedStringArray("_active_store_list")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_psa0r")
+_active_store_list = NodePath("StoreColumn/ActiveStoreList")
 
 [node name="StoreColumn" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -27,9 +30,17 @@ alignment = 1
 layout_mode = 2
 text = "Upload Product"
 
-[node name="UploadButton2" type="Button" parent="StoreColumn/QuickAction"]
+[node name="ViewButton" type="Button" parent="StoreColumn/QuickAction"]
+layout_mode = 2
+text = "View Listed Products"
+
+[node name="DeleteButton" type="Button" parent="StoreColumn/QuickAction"]
 layout_mode = 2
 text = "Delete Product"
 
 [node name="ActiveStoreList" parent="StoreColumn" instance=ExtResource("1_37rgn")]
 layout_mode = 2
+
+[connection signal="pressed" from="StoreColumn/QuickAction/UploadButton" to="." method="_on_upload_button_pressed"]
+[connection signal="pressed" from="StoreColumn/QuickAction/ViewButton" to="." method="_on_view_button_pressed"]
+[connection signal="pressed" from="StoreColumn/QuickAction/DeleteButton" to="." method="_on_delete_button_pressed"]
