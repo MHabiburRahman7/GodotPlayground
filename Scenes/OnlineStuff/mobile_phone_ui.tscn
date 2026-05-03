@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://djtoaoru4q0dw"]
 
 [ext_resource type="Script" uid="uid://dhnvhmvqbkc3y" path="res://Script/OnlineStuff/PhoneUI/mobile_phone_ui.gd" id="1_sdfb3"]
-[ext_resource type="PackedScene" uid="uid://bgwdoa40bopmv" path="res://Scenes/OnlineStuff/MobilePhoneTabs/SupplyTab.tscn" id="2_qq3j2"]
+[ext_resource type="PackedScene" uid="uid://bgwdoa40bopmv" path="res://Scenes/OnlineStuff/MobilePhoneTabs/supply_tab.tscn" id="2_qq3j2"]
 [ext_resource type="PackedScene" uid="uid://1tywjdur4a56" path="res://Scenes/OnlineStuff/MobilePhoneTabs/store_tab_v2.tscn" id="3_thidx"]
-[ext_resource type="PackedScene" uid="uid://cydtdih2bic7f" path="res://Scenes/OnlineStuff/MobilePhoneTabs/InboxTab.tscn" id="4_63y63"]
+[ext_resource type="PackedScene" uid="uid://cydtdih2bic7f" path="res://Scenes/OnlineStuff/MobilePhoneTabs/inbox_tab.tscn" id="4_63y63"]
 
 [node name="MobilePhoneUI" type="Control"]
 layout_mode = 3

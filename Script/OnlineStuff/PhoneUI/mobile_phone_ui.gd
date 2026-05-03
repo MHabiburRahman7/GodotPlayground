@@ -9,3 +9,7 @@ func open():
 func close():
 	visible = false
 	get_tree().paused = false
+
+##deactivate this, only for testing purpose
+#func _ready() -> void:
+	#

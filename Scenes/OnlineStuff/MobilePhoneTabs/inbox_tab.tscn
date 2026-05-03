@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cydtdih2bic7f"]
 
-[ext_resource type="Script" uid="uid://dhx8rog7arnyu" path="res://Script/OnlineStuff/PhoneUI/InboxTab.gd" id="1_ppdbd"]
+[ext_resource type="Script" uid="uid://dhx8rog7arnyu" path="res://Script/OnlineStuff/PhoneUI/inbox_tab.gd" id="1_ppdbd"]
 
 [node name="InboxTab" type="Control"]
 layout_mode = 3
