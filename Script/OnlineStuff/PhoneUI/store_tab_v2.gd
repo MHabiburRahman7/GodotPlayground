@@ -10,10 +10,12 @@ func _ready() -> void:
 
 func _on_upload_button_pressed() -> void:
 	_active_store_list_ctrl.change_to_upload_view()
+	_active_store_list_ctrl.trigger_reset_selected_items()
 
 func _on_view_button_pressed() -> void:
 	_active_store_list_ctrl.change_to_list_view()
+	_active_store_list_ctrl.trigger_reset_selected_items()
 
 func _on_delete_button_pressed() -> void:
-	push_warning("Button did nothing for now")
-	pass # Replace with function body.
+	_active_store_list_ctrl.trigger_remove_selected_items()
+	_active_store_list_ctrl.trigger_reset_selected_items()

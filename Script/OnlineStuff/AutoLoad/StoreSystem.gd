@@ -6,12 +6,14 @@ extends Node
 # and persists the catalog to disk as JSON via PersistenceManager.
 class_name StoreSystem
 
-signal store_item_registered(store_item: StoreItemEntry)
+signal store_item_updated()
 
 const CATALOG_PATH: String = "user://store_catalog.json"
 
 var catalog: Array[StoreItemEntry] = []
 var _next_id: int = 1
+
+var _temp_to_be_deleted : Array[int] = []
 
 func _ready() -> void:
 	_load_catalog()
@@ -31,7 +33,7 @@ func register_item(name: String, price: float, qty: int, sprite_path: String) ->
 	_next_id += 1
 	catalog.append(entry)
 	_save_catalog()
-	emit_signal("store_item_registered")
+	emit_signal("store_item_updated")
 	return entry
 
 func get_item_by_name(name: String) -> StoreItemEntry:
@@ -79,14 +81,7 @@ func _load_catalog() -> void:
 func _save_catalog() -> void:
 	var catalog_data: Array = []
 	for entry in catalog:
-		catalog_data.append({
-			"id": entry.id,
-			"display_name": entry.display_name,
-			"price": entry.price,
-			"qty": entry.qty,
-			"sprite_path": entry.sprite_path,
-			"created_at": entry.created_at,
-		})
+		catalog_data.append(entry.to_dict())
 	var payload: Dictionary = {
 		"next_id": _next_id,
 		"catalog": catalog_data,
@@ -94,3 +89,34 @@ func _save_catalog() -> void:
 	var err: Error = PersistenceManager.save_dict_as_json(CATALOG_PATH, payload)
 	if err != OK:
 		push_warning("StoreSystem: failed to save catalog (code %d)" % err)
+
+#for button item	
+func on_item_selected_change(item_id: int, is_selected: bool) -> void:
+	if is_selected:
+		_temp_to_be_deleted.append(item_id)
+	else:
+		if _temp_to_be_deleted != null:
+			for i in _temp_to_be_deleted:
+				if i == item_id:
+					_temp_to_be_deleted.remove_at(i)
+
+func reset_deleted_item_list() -> void:
+	_temp_to_be_deleted = []
+
+#for delete button
+func remove_selected_item() -> void:
+	# Filter out the selected IDs in one go:
+	catalog = catalog.filter(func(entry):
+		return not _temp_to_be_deleted.has(entry.id)
+	)
+	_temp_to_be_deleted.clear()
+	var payload = {
+		"next_id": _next_id,
+		"catalog": catalog.map(func(e): return e.to_dict()),  # if you have a to_dict() helper
+	}
+	var err: Error = PersistenceManager.save_dict_as_json(CATALOG_PATH, payload)
+	if err != OK:
+		push_warning("StoreSystem: failed to save catalog (code %d)" % err)
+	
+	emit_signal("store_item_updated")
+	reset_deleted_item_list()

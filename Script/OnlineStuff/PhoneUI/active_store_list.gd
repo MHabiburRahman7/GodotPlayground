@@ -53,3 +53,9 @@ func change_to_list_view() -> void:
 
 func change_to_none_view() -> void:
 	_set_active_view(ViewState.VIEW_NONE)
+
+func trigger_remove_selected_items() -> void:
+	_store_listing.trigger_remove_selected_items()
+
+func trigger_reset_selected_items() -> void:
+	_store_listing.trigger_reset_selected_items()

@@ -13,7 +13,7 @@ func _ready() -> void:
 		push_warning("UploadItemToStoreForm: StoreSystemSingleton not found")
 		
 	# When a new item is registered, re‑populate the list
-	_store_system.connect("store_item_registered", Callable(self, "refresh_list"))
+	_store_system.connect("store_item_updated", Callable(self, "refresh_list"))
 	# Initial fill
 	refresh_list()
 
@@ -38,10 +38,9 @@ func refresh_list() -> void:
 		_store_list_container.add_child(slot)
 		slot.set_entry(entry)
 		print("ActiveStoreList: populated store item ", entry.display_name)
-		
-func _add_new_item() -> void:
-	# (Optional stub for programmatic additions)
-	pass
-func _remove_item() -> void:
-	# (Optional stub for removal logic)
-	pass
+
+func trigger_remove_selected_items() -> void:
+	_store_system.remove_selected_item()
+
+func trigger_reset_selected_items() -> void:
+	_store_system.reset_deleted_item_list()
