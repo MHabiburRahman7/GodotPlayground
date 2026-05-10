@@ -8,24 +8,36 @@ class_name SupplySystem
 signal item_ordered(item_id, amount)
 signal item_arrived(item_id, amount)
 
-# Simple catalog (later: Resources / JSON)
-var catalog := {
-	"item_stock": {
-		"name": "Item Stock",
-		"price": 50,
-		"delivery_time": 5.0
-	},
-	"bubble_wrap": {
-		"name": "Bubble Wrap",
-		"price": 10,
-		"delivery_time": 3.0
-	},
-	"cardboard_box": {
-		"name": "Cardboard Box",
-		"price": 20,
-		"delivery_time": 4.0
-	}
-}
+@export var catalog_path: String = "res://Database/item/supply_item_catalog.json"
+var catalog: Dictionary = {}
+
+func _ready() -> void:
+	_load_catalog()
+
+func _load_catalog() -> void:
+	if not FileAccess.file_exists(catalog_path):
+		push_error("Supply catalog missing at '%s'" % catalog_path)
+		return
+
+	var file: FileAccess = FileAccess.open(catalog_path, FileAccess.READ)
+	if not file:
+		push_error("Failed to open supply catalog: %s" % catalog_path)
+		return
+
+	var raw: String = file.get_as_text()
+	file.close()
+
+	var json = JSON.new()
+	var error = json.parse(raw)
+	if error != OK:
+		push_error("Failed to parse catalog '%s': %s" % json.get_error_message())
+		return
+
+	var parsed = json.data
+	if parsed is Dictionary:
+		catalog = parsed as Dictionary
+	else:
+		push_error("Catalog '%s' must contain a Dictionary root" % catalog_path)
 
 # Pending deliveries
 var pending_orders: Array = []
