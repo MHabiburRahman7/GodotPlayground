@@ -1,8 +1,8 @@
 extends Node
 
-func _ready() -> void:
-	_prepare_inventories()
-	_prepare_dummy_items()
+#func _ready() -> void:
+	#_prepare_inventories()
+	#_prepare_dummy_items()
 
 func _prepare_inventories() -> void:
 	var warehouse_inv = Inventory.new()
@@ -34,3 +34,5 @@ func _input(event):
 		Global.get_game_controller().change_2d_scene("res://Scenes/Maps/OutsideHome.tscn")
 	if event.is_action_pressed("load_inside_home"):
 		Global.get_game_controller().change_2d_scene("res://Scenes/Maps/InsideHome.tscn")
+	if event.is_action_pressed("load_full_chain_test"):
+		Global.get_game_controller().change_2d_scene("res://Scenes/Maps/full_chain_test.tscn")
