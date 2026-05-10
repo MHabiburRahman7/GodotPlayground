@@ -18,10 +18,13 @@ func bind_inventoryv2(inv: Inventory, name: String) -> void:
 	refresh()
 
 func refresh() -> void:
+	if inventory == null:
+		return
 	_clear_grid()
 
-	for item in inventory.items:
-		_create_slot(item)
+	if(inventory.items != null):
+		for item in inventory.items:
+			_create_slot(item)
 
 func _create_slot(item: ItemInstance) -> void:
 	var slot := slot_scene.instantiate() as InventorySlot

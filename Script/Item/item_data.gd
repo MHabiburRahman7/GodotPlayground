@@ -1,4 +1,6 @@
 extends Resource
+
+# Act as an instance / object in the world's data 
 class_name ItemData
 
 @export var id: String

@@ -7,8 +7,11 @@ class_name InventorySystem
 var inventories := {}
 
 func register_inventory(id: String, inventory: Inventory):
-	inventories[id] = inventory
-	print("Inventory added ", id)
+	if(inventories.has(id)):
+		print("InventorySystem: inventory, ", id, " already registered")
+	else:
+		inventories[id] = inventory
+		print("InventorySystem: Inventory added ", id)
 
 func get_inventory(id: String) -> Inventory:
 	print("got inventory: ", id)

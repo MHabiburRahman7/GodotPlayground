@@ -1,7 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://c38sthkrjf2bd"]
+[gd_scene load_steps=5 format=3 uid="uid://c38sthkrjf2bd"]
 
 [ext_resource type="Script" uid="uid://7phx4bxsunm3" path="res://Script/Testing/WarehouseRackTest.gd" id="1_mli5b"]
-[ext_resource type="Texture2D" uid="uid://du3ln4pbru7hd" path="res://icon.svg" id="1_xvekk"]
+[ext_resource type="Texture2D" uid="uid://bms2qidtijt0s" path="res://Image/Tilempas/Chest.png" id="2_mli5b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwakd"]
+atlas = ExtResource("2_mli5b")
+region = Rect2(16, 16, 16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xvekk"]
 size = Vector2(136, 131)
@@ -11,8 +15,8 @@ script = ExtResource("1_mli5b")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, -2)
-scale = Vector2(0.48828125, 1)
-texture = ExtResource("1_xvekk")
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_kwakd")
 
 [node name="Area2D" type="Area2D" parent="."]
 
