@@ -77,3 +77,5 @@ metadata/_tab_index = 1
 visible = false
 layout_mode = 2
 metadata/_tab_index = 2
+
+[connection signal="button_up" from="Background/Margin/Layout/Header/CloseButton" to="." method="_on_close_button_button_up"]
