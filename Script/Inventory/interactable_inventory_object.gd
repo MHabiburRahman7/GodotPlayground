@@ -1,0 +1,40 @@
+extends Node
+
+var current_is_user_close := false
+var is_user_close := false
+
+@export var this_inventory_identity : String 
+
+signal chest_openedv2(inventory_left: Inventory, inventory_right: Inventory)
+signal chest_openedv3(inventory_left: Inventory, inventory_name_left: String, inventory_right: Inventory, inventory_name_right: String)
+signal chest_closed()
+
+func _ready() -> void:
+	add_to_group("chests")
+
+func _input(event):
+	if(current_is_user_close):
+		if event.is_action_pressed("use"):
+			emit_signal("chest_openedv2"
+			, InventorySystemSingleton.get_inventory(this_inventory_identity)
+			, InventorySystemSingleton.get_inventory("backpack"))
+			
+			emit_signal("chest_openedv3"
+			, InventorySystemSingleton.get_inventory(this_inventory_identity)
+			, this_inventory_identity
+			, InventorySystemSingleton.get_inventory("backpack")
+			, "backpack")
+			
+func _process(delta: float) -> void:
+	if (current_is_user_close != is_user_close):
+		current_is_user_close = is_user_close
+		print("changing current user close to: ", current_is_user_close)
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player") || body.name =="Player":
+		is_user_close = true
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body.is_in_group("player") || body.name =="Player":
+		is_user_close = false
+		emit_signal("chest_closed")

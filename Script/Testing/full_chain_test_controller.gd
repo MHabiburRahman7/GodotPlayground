@@ -46,5 +46,19 @@ func _ready() -> void:
 #It have to be integrated with TimeManager later 
 func _on_item_arrived(item_id: String, amount: int) -> void:
 	_delivery_sprite.modulate = Color(0, 1, 0)
+	# Deposit into delivery_drop inventory
+	var drop_inv: Inventory = InventorySystemSingleton.get_inventory("delivery_drop")
+	if drop_inv == null:
+		push_warning("Delivery drop inventory not found")
+	else:
+		for i in amount:
+			var item_data: ItemData = ItemData.new()
+			item_data.id = item_id
+			item_data.name = _supply_system.catalog[item_id].name
+			item_data.base_price = _supply_system.catalog[item_id].price
+			item_data.stackable = true
+			item_data.category = "supply"
+			var item_instance: ItemInstance = ItemInstance.new(item_data)
+			drop_inv.add_item(item_instance)
 	await get_tree().create_timer(0.5).timeout
 	_delivery_sprite.modulate = Color(1, 1, 1)

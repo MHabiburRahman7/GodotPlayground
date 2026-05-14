@@ -3,7 +3,7 @@
 [ext_resource type="TileSet" uid="uid://b20popcun3h8m" path="res://Tilemaps/outer_home.tres" id="1_4id8e"]
 [ext_resource type="PackedScene" uid="uid://cgbb6t0i3qxcv" path="res://Scenes/Cow.tscn" id="2_o50ka"]
 [ext_resource type="PackedScene" uid="uid://byp1qiykpin2b" path="res://Scenes/character_body_2d.tscn" id="3_hhl56"]
-[ext_resource type="PackedScene" uid="uid://c38sthkrjf2bd" path="res://Scenes/Inventory/warehouse_object.tscn" id="5_bd24g"]
+[ext_resource type="PackedScene" uid="uid://c38sthkrjf2bd" path="res://Scenes/Inventory/interactable_inventory_object.tscn" id="5_bd24g"]
 [ext_resource type="PackedScene" uid="uid://bp6x1f63v67xd" path="res://Scenes/Inventory/inventory_panel.tscn" id="5_hhl56"]
 
 [node name="OutsideHome" type="Node2D"]

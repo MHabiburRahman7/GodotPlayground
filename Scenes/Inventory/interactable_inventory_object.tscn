@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c38sthkrjf2bd"]
 
-[ext_resource type="Script" uid="uid://7phx4bxsunm3" path="res://Script/Testing/WarehouseRackTest.gd" id="1_mli5b"]
+[ext_resource type="Script" uid="uid://dhnn1pp0lamro" path="res://Script/Inventory/interactable_inventory_object.gd" id="1_v3uqp"]
 [ext_resource type="Texture2D" uid="uid://bms2qidtijt0s" path="res://Image/Tilempas/Chest.png" id="2_mli5b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kwakd"]
@@ -10,8 +10,8 @@ region = Rect2(16, 16, 16, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xvekk"]
 size = Vector2(136, 131)
 
-[node name="WarehouseObject" type="Node2D"]
-script = ExtResource("1_mli5b")
+[node name="InteractableInventoryObject" type="Node2D"]
+script = ExtResource("1_v3uqp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, -2)

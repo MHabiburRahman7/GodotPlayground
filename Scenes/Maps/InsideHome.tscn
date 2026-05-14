@@ -2,7 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://cathx15owa3o1" path="res://Tilemaps/house_base_tilemap.tres" id="1_lvvym"]
 [ext_resource type="PackedScene" uid="uid://byp1qiykpin2b" path="res://Scenes/character_body_2d.tscn" id="2_wtp0q"]
-[ext_resource type="PackedScene" uid="uid://c38sthkrjf2bd" path="res://Scenes/Inventory/warehouse_object.tscn" id="3_fqy14"]
+[ext_resource type="PackedScene" uid="uid://c38sthkrjf2bd" path="res://Scenes/Inventory/interactable_inventory_object.tscn" id="3_fqy14"]
 
 [node name="InsideHome" type="Node2D"]
 

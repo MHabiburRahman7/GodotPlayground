@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cfwywiuhs7md6" path="res://Script/Testing/full_chain_test_controller.gd" id="1_bmd4b"]
 [ext_resource type="TileSet" uid="uid://b20popcun3h8m" path="res://Tilemaps/outer_home.tres" id="1_irucn"]
-[ext_resource type="PackedScene" uid="uid://c38sthkrjf2bd" path="res://Scenes/Inventory/warehouse_object.tscn" id="2_irucn"]
+[ext_resource type="PackedScene" uid="uid://c38sthkrjf2bd" path="res://Scenes/Inventory/interactable_inventory_object.tscn" id="2_irucn"]
 [ext_resource type="PackedScene" uid="uid://byp1qiykpin2b" path="res://Scenes/character_body_2d.tscn" id="3_hf2yg"]
 
 [node name="FullChainTest" type="Node2D"]
@@ -15,15 +15,15 @@ tile_set = ExtResource("1_irucn")
 [node name="WallsTilemap" type="TileMapLayer" parent="."]
 
 [node name="DeliveryDrop" parent="." instance=ExtResource("2_irucn")]
-position = Vector2(209, 163)
+position = Vector2(212, 162)
 this_inventory_identity = "delivery_drop"
 
 [node name="WarehouseRack" parent="." instance=ExtResource("2_irucn")]
-position = Vector2(749, 152)
+position = Vector2(747, 151)
 this_inventory_identity = "warehouse_rack"
 
 [node name="CourierCenter" parent="." instance=ExtResource("2_irucn")]
-position = Vector2(1232, 149)
+position = Vector2(1225, 155)
 this_inventory_identity = "courier_center"
 
 [node name="Player" parent="." instance=ExtResource("3_hf2yg")]
