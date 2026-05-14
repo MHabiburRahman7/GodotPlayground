@@ -39,6 +39,10 @@ func _load_catalog() -> void:
 	else:
 		push_error("Catalog '%s' must contain a Dictionary root" % catalog_path)
 
+# TODO: this should belong to utils script
+func _ensure_item_resources() -> void:
+	pass
+
 # Pending deliveries
 var pending_orders: Array = []
 

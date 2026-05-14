@@ -25,6 +25,7 @@ SupplySystemSingleton="*res://Script/OnlineStuff/AutoLoad/supply_system.gd"
 StoreSystemSingleton="*res://Script/OnlineStuff/AutoLoad/store_system.gd"
 InboxSystemSingleton="*res://Script/OnlineStuff/Manager/InboxSystem.gd"
 PersistenceManager="*res://Script/Utils/PersistenceManager.gd"
+DeliveryManager="*res://Script/OnlineStuff/AutoLoad/delivery_manager.gd"
 
 [display]
 
