@@ -19,10 +19,10 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*res://Script/Global.gd"
-InventorySystemSingleton="*res://Script/Inventory/InventorySystem.gd"
-OrderSystemSingleton="*res://Script/OnlineStuff/AutoLoad/OrderSystem.gd"
-SupplySystemSingleton="*res://Script/OnlineStuff/AutoLoad/SupplySystem.gd"
-StoreSystemSingleton="*res://Script/OnlineStuff/AutoLoad/StoreSystem.gd"
+InventorySystemSingleton="*res://Script/Inventory/inventory_system.gd"
+OrderSystemSingleton="*res://Script/OnlineStuff/AutoLoad/order_system.gd"
+SupplySystemSingleton="*res://Script/OnlineStuff/AutoLoad/supply_system.gd"
+StoreSystemSingleton="*res://Script/OnlineStuff/AutoLoad/store_system.gd"
 InboxSystemSingleton="*res://Script/OnlineStuff/Manager/InboxSystem.gd"
 PersistenceManager="*res://Script/Utils/PersistenceManager.gd"
 
@@ -83,6 +83,16 @@ load_outer_home={
 load_inside_home={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194440,"key_label":0,"unicode":50,"location":0,"echo":false,"script":null)
+]
+}
+open_phone_ui={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":80,"key_label":0,"unicode":112,"location":0,"echo":false,"script":null)
+]
+}
+load_full_chain_test={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194441,"key_label":0,"unicode":51,"location":0,"echo":false,"script":null)
 ]
 }
 

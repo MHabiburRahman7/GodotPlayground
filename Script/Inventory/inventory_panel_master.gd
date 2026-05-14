@@ -13,28 +13,6 @@ var selected_from_left := true
 
 func _ready() -> void:
 	_prepare_button_signals()
-	
-	#_prepare_dummy_inventory()
-	#_prepare_dummy_items()
-
-#Testing Purpose
-const itemDataResource = preload("res://Resources/Item/TestItem.tres")
-
-func _prepare_dummy_items() -> void:
-	var itemData = itemDataResource as ItemData
-	var itemInstance = ItemInstance.new(itemData)
-	inventory_left.add_item(itemInstance)
-	inventory_left.add_item(itemInstance)
-	panel_left.refresh()
-	
-func _prepare_dummy_inventory() -> void:
-	var left_inv = Inventory.new()
-	left_inv.capacity = 10
-	
-	var right_inv = Inventory.new()
-	right_inv.capacity = 5
-	
-	open(left_inv, right_inv)
 
 #Public API
 func open(left: Inventory, right: Inventory) -> void:
@@ -81,7 +59,7 @@ func _on_right_selected(item: ItemInstance):
 
 # Item Transfer
 func _on_button_to_right_pressed():
-	print("button to right pressed")
+	print("InventoryPanelMaster: button to right pressed")
 	if not selected_item:
 		return
 	if not selected_from_left:
@@ -89,7 +67,7 @@ func _on_button_to_right_pressed():
 	_transfer(selected_item, inventory_left, inventory_right)
 
 func _on_button_to_left_pressed():
-	print("button to left pressed")
+	print("InventoryPanelMaster: button to left pressed")
 	if not selected_item:
 		return
 	if selected_from_left:

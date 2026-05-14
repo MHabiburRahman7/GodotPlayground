@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://iqfojbl0mc0h"]
 
-[ext_resource type="Script" uid="uid://co0rablb6ahed" path="res://Script/OnlineStuff/PhoneUI/InboxItemSlot.gd" id="1_0fm4l"]
+[ext_resource type="Script" uid="uid://co0rablb6ahed" path="res://Script/OnlineStuff/PhoneUI/inbox_item_slot.gd" id="1_0fm4l"]
 
 [node name="InboxItemSlot" type="Control" node_paths=PackedStringArray("sender_label", "message_title_label", "date_label")]
 custom_minimum_size = Vector2(600, 80)

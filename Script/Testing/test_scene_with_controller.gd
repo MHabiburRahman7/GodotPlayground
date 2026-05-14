@@ -18,10 +18,11 @@ func _prepare_inventories() -> void:
 	InventorySystemSingleton.register_inventory("rack", rack_inv)
 
 #Testing Purpose
-const itemDataResource = preload("res://Resources/Item/TestItem.tres")
-
 func _prepare_dummy_items() -> void:
-	var itemData = itemDataResource as ItemData
+	var itemData = ItemData.new()
+	itemData.base_price = 10
+	itemData.name = "BubbleWrap"
+	itemData.icon = load("res://icon.svg")
 	var itemInstance = ItemInstance.new(itemData)
 	
 	var warehouse_inv = InventorySystemSingleton.get_inventory("warehouse")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c3w67qfhgsajb"]
 
-[ext_resource type="Script" uid="uid://btatq2dhm8vc2" path="res://Script/OnlineStuff/PhoneUI/SupplyItemSlot.gd" id="1_0y0rk"]
+[ext_resource type="Script" uid="uid://btatq2dhm8vc2" path="res://Script/OnlineStuff/PhoneUI/supply_item_slot.gd" id="1_0y0rk"]
 [ext_resource type="Texture2D" uid="uid://du3ln4pbru7hd" path="res://icon.svg" id="1_800bx"]
 
 [node name="SupplyItemSlot" type="Control" node_paths=PackedStringArray("icon", "name_label", "price_label")]

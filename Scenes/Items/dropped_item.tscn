@@ -1,16 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1ergf02eicrj"]
+[gd_scene load_steps=4 format=3 uid="uid://cved6y5tyi55i"]
 
-[ext_resource type="Script" uid="uid://ci1e6jb1eqbeb" path="res://Script/Item/ItemSceneController.gd" id="1_j4xiw"]
-[ext_resource type="Texture2D" uid="uid://du3ln4pbru7hd" path="res://icon.svg" id="1_vu38h"]
+[ext_resource type="Script" uid="uid://ci1e6jb1eqbeb" path="res://Script/Item/item_scene_controller.gd" id="1_gnqtb"]
+[ext_resource type="Texture2D" uid="uid://du3ln4pbru7hd" path="res://icon.svg" id="2_14gdb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j4xiw"]
 size = Vector2(131, 132)
 
-[node name="TestItem" type="Node2D"]
-script = ExtResource("1_j4xiw")
+[node name="DroppedItem" type="Node2D"]
+script = ExtResource("1_gnqtb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_vu38h")
+texture = ExtResource("2_14gdb")
 
 [node name="InteractableArea2D" type="Area2D" parent="."]
 
