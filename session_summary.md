@@ -1,8 +1,0 @@
-- Performed final compile-check for all item-related scripts.
-
-## Delivery Buffer & Autoload (this session)
-- Created `delivery_manager.gd` (class_name `DeliveryManagerSingleton`) to buffer incoming orders until delivery-drop inventories register.
-- Registered `delivery_manager.gd` as an autoload in `project.godot` under `[autoload]` so `DeliveryManager` is available at runtime.
-- Added concise header doc-comment at the top of `delivery_manager.gd` describing its purpose.
-- Wired `DeliveryManager.register_drop("delivery_drop")` into `full_chain_test_controller.gd` after inventory registration to flush buffered orders.
-- Replaced `DeliveryManagerSingleton.register_drop` with `DeliveryManager.register_drop` in `full_chain_test_controller.gd` to use the autoload instance.

@@ -1,6 +1,6 @@
 {
-	"item_stock": {
-		"name": "Item Stock",
+	"cardboard_box": {
+		"name": "Cardboard box",
 		"price": 50,
 		"delivery_time": 5.0
 	},
@@ -9,8 +9,8 @@
 		"price": 10,
 		"delivery_time": 3.0
 	},
-	"cardboard_box": {
-		"name": "Cardboard Box",
+	"packing_tape": {
+		"name": "Packing tape",
 		"price": 20,
 		"delivery_time": 4.0
 	}
