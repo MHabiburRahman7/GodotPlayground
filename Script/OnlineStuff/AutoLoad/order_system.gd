@@ -4,6 +4,9 @@ extends Node
 # Creates orders, tracks their state transitions, and emits notifications so other systems can react.
 class_name OrderSystem
 
+@export var store_system_path: NodePath = "/root/StoreSystemSingleton"
+@onready var _store_system: StoreSystem = get_node(store_system_path) as StoreSystem
+
 signal order_created(order: Order, event_label: String)
 signal order_updated(order: Order, event_label: String)
 
@@ -37,15 +40,24 @@ func start_auto_orders() -> void:
 	_spawn_loop()
 
 # ---- For testing purpose -------------------------------------
-#func _ready() -> void:
-#	start_auto_orders()
+func _ready() -> void:
+	# randomize() disabled; DemandSystem handles order timing
+	# start_auto_orders() disabled; DemandSystem handles order timing
+	pass # DemandSystem handles order spawning
+
+func _spawn_random_order() -> void:
+	var entries: Array[StoreItemEntry] = _store_system.get_catalog()
+	if entries.size() > 0:
+		var entry: StoreItemEntry = entries[randi() % entries.size()]
+		create_order(str(entry.id))
+		print("OrderSystem: spawned order for item %s" % str(entry.id))
 
 func _spawn_loop() -> void:
-	var timer = get_tree().create_timer(randf_range(6.0, 12.0))
+	var timer = get_tree().create_timer(randf_range(2.0, 4.0))
 	timer.timeout.connect(func() -> void:
-		create_order("item_stock")
+		_spawn_random_order()
 		_spawn_loop()
-		print("order created!!!!")
+		
 	)
 
 func _set_order_state(order: Order, new_state: int, event_label: String) -> void:

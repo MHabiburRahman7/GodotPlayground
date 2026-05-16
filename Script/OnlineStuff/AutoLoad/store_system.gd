@@ -30,6 +30,7 @@ func register_item(name: String, price: float, qty: int, sprite_path: String) ->
 	entry.sprite_path = sprite_path.strip_edges()
 	entry.created_at = _current_timestamp()
 	entry.qty = qty
+	entry.demand_weight = 1.0 # initial demand weight
 	_next_id += 1
 	catalog.append(entry)
 	_save_catalog()
@@ -45,6 +46,10 @@ func get_item_by_name(name: String) -> StoreItemEntry:
 
 func get_catalog() -> Array[StoreItemEntry]:
 	return catalog.duplicate()
+
+func get_catalog_entries() -> Array[StoreItemEntry]:
+	# Returns direct references to catalog entries for dynamic weight adjustments
+	return catalog
 
 func clear_catalog() -> void:
 	catalog.clear()
@@ -76,6 +81,7 @@ func _load_catalog() -> void:
 		entry.qty = int(entry_data.get("qty", 0))
 		entry.sprite_path = str(entry_data.get("sprite_path", ""))
 		entry.created_at = str(entry_data.get("created_at", _current_timestamp()))
+		entry.demand_weight = float(entry_data.get("demand_weight", 1.0)) # apply saved weight or default
 		catalog.append(entry)
 
 func _save_catalog() -> void:

@@ -18,12 +18,13 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+DemandSystemSingleton="*res://Script/OnlineStuff/AutoLoad/demand_system.gd"
 Global="*res://Script/Global.gd"
 InventorySystemSingleton="*res://Script/Inventory/inventory_system.gd"
 OrderSystemSingleton="*res://Script/OnlineStuff/AutoLoad/order_system.gd"
 SupplySystemSingleton="*res://Script/OnlineStuff/AutoLoad/supply_system.gd"
 StoreSystemSingleton="*res://Script/OnlineStuff/AutoLoad/store_system.gd"
-InboxSystemSingleton="*res://Script/OnlineStuff/Manager/InboxSystem.gd"
+InboxSystemSingleton="*res://Script/OnlineStuff/AutoLoad/inbox_system.gd"
 PersistenceManager="*res://Script/Utils/PersistenceManager.gd"
 DeliveryManager="*res://Script/OnlineStuff/AutoLoad/delivery_manager.gd"
 
