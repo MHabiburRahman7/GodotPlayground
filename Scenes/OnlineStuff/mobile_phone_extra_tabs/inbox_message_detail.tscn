@@ -1,0 +1,83 @@
+[gd_scene load_steps=2 format=3 uid="uid://baaj0y0d1yy2j"]
+
+[ext_resource type="Script" uid="uid://dhlsjs4scm66f" path="res://Script/OnlineStuff/PhoneUI/inbox_message_detail.gd" id="1_xebsq"]
+
+[node name="InboxMessageDetail" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -552.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xebsq")
+
+[node name="BGPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MessageDetailContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="Header" type="Panel" parent="MessageDetailContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="MessageDetailContainer/Header"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Close"
+
+[node name="Body" type="VBoxContainer" parent="MessageDetailContainer"]
+layout_mode = 2
+
+[node name="SenderLabel" type="Label" parent="MessageDetailContainer/Body"]
+layout_mode = 2
+text = "From: "
+
+[node name="OrderedItemLabel" type="Label" parent="MessageDetailContainer/Body"]
+layout_mode = 2
+text = "Ordered Item:"
+
+[node name="QtyLabel" type="Label" parent="MessageDetailContainer/Body"]
+layout_mode = 2
+text = "Qty: "
+
+[node name="MessageLabel" type="Label" parent="MessageDetailContainer/Body"]
+layout_mode = 2
+text = "Message: "
+
+[node name="OrderStatusLabel" type="Label" parent="MessageDetailContainer/Body"]
+layout_mode = 2
+text = "Status: Accepted "
+horizontal_alignment = 1
+
+[node name="OrderDecision" type="HBoxContainer" parent="MessageDetailContainer/Body"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="AcceptButton" type="Button" parent="MessageDetailContainer/Body/OrderDecision"]
+layout_mode = 2
+text = "Accept "
+
+[node name="DeclineButton" type="Button" parent="MessageDetailContainer/Body/OrderDecision"]
+layout_mode = 2
+text = "Decline"
+
+[connection signal="pressed" from="MessageDetailContainer/Header/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="button_up" from="MessageDetailContainer/Body/OrderDecision/AcceptButton" to="." method="_on_accept_button_button_up"]
+[connection signal="button_up" from="MessageDetailContainer/Body/OrderDecision/DeclineButton" to="." method="_on_decline_button_button_up"]

@@ -19,3 +19,15 @@ func to_dict() -> Dictionary:
 		"qty":          qty,
 		"demand_weight": demand_weight,
 	}
+
+# only work once
+# For converting uploaded item into pass-able item
+func to_item_instance() -> ItemInstance:
+	var data = ItemData.new()
+	#data.id = -1
+	data.base_price = price
+	data.name = display_name
+	data.stackable = false
+	data.category = ""
+	
+	return ItemInstance.new(data)

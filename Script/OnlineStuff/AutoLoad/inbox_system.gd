@@ -37,14 +37,14 @@ func _get_order_system() -> OrderSystem:
 		return get_tree().get_root().get_node("OrderSystemSingleton") as OrderSystem
 	return null
 
-func _on_order_created(order: Order, event_label: String) -> void:
+func _on_order_created(order: OrderInstance, event_label: String) -> void:
 	print("InboxSystem: order created event %s for order %d" % [event_label, order.id])
 	register_order_event(order, event_label)
 
-func _on_order_updated(order: Order, event_label: String) -> void:
+func _on_order_updated(order: OrderInstance, event_label: String) -> void:
 	register_order_event(order, event_label)
 
-func register_order_event(order: Order, event_label: String) -> void:
+func register_order_event(order: OrderInstance, event_label: String) -> void:
 	print("InboxSystem: register_order_event for order %d event %s" % [order.id, event_label])
 	var message_title: String = "Order #%d: %s" % [order.id, event_label]
 	var message_content: String = "Item %s updated to %s." % [order.item_id, _state_to_label(order.state)]
@@ -56,7 +56,7 @@ func register_order_event(order: Order, event_label: String) -> void:
 		message_content,
 		message_time,
 		order.id,
-		order.item_id,
+		order.data.data.name,
 		_state_to_label(order.state)
 	)
 	_register_new_message(new_message)
@@ -84,6 +84,12 @@ func _get_next_message_id() -> int:
 		latest_message_id = 0
 	return latest_message_id
 
+func get_message_by_id(message_id: int) -> MessageInstance:
+	for message in messages_list:
+		if message.id == message_id:
+			return message
+	return null
+
 func _current_time_string() -> String:
 	var now = Time.get_datetime_dict_from_system()
 	return "%04d-%02d-%02d %02d:%02d" % [now.year, now.month, now.day, now.hour, now.minute]
@@ -93,13 +99,13 @@ func _generate_sender_name() -> String:
 
 func _state_to_label(state: int) -> String:
 	match state:
-		Order.State.CREATED:
+		OrderInstance.State.CREATED:
 			return "Created"
-		Order.State.PACKING:
+		OrderInstance.State.PACKING:
 			return "Packing"
-		Order.State.SENT:
+		OrderInstance.State.SENT:
 			return "Sent"
-		Order.State.COMPLETED:
+		OrderInstance.State.COMPLETED:
 			return "Completed"
 		_:
 			return "Unknown"

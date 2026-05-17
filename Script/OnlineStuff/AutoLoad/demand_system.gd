@@ -48,7 +48,7 @@ func _spawn_order() -> void:
 			chosen = entry
 			break
 	chosen.demand_weight *= 1.2 # Hardcoded modifier: AI-visible sale boost (+20%).
-	_order_system.create_order(str(chosen.id))
+	_order_system.create_order(chosen.to_item_instance())
 
 func _decay_demand_weights() -> void:
 	for entry in _store_system.get_catalog_entries():

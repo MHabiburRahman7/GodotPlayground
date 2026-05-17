@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cydtdih2bic7f"]
+[gd_scene load_steps=3 format=3 uid="uid://cydtdih2bic7f"]
 
 [ext_resource type="Script" uid="uid://dhx8rog7arnyu" path="res://Script/OnlineStuff/PhoneUI/inbox_tab.gd" id="1_ppdbd"]
+[ext_resource type="PackedScene" uid="uid://baaj0y0d1yy2j" path="res://Scenes/OnlineStuff/mobile_phone_extra_tabs/inbox_message_detail.tscn" id="2_o4xwj"]
 
 [node name="InboxTab" type="Control"]
 layout_mode = 3
@@ -11,8 +12,23 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ppdbd")
 
-[node name="OrderList" type="VBoxContainer" parent="."]
-custom_minimum_size = Vector2(600, 80)
-layout_mode = 0
-offset_right = 600.0
-offset_bottom = 80.0
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OrderList" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+
+[node name="InboxMessageDetail" parent="." instance=ExtResource("2_o4xwj")]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 1
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 0.0
+grow_horizontal = 1
+grow_vertical = 1

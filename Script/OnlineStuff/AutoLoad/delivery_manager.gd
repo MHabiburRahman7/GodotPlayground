@@ -5,6 +5,11 @@ class_name DeliveryManagerSingleton
 
 @export var default_drop_id: String = "delivery_drop"
 
+# This class should contains
+# 1. Supply System (for player to order supply)
+# 2. Store System (for player/courier to deiver their package)
+# 3. Time Syetem (pretty obvious)
+
 var _pending_items: Array[String] = []
 
 func _ready() -> void:

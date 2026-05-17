@@ -8,11 +8,59 @@ class_name SupplySystem
 signal item_ordered(item_id, amount)
 signal item_arrived(item_id, amount)
 
-@export var catalog_path: String = "res://Database/item/supply_item_catalog.json"
+signal item_orderedv2(item: ItemInstance, amount: int)
+signal item_arrivedv2(item: ItemInstance, amount: int)
+
+@export var catalog_path: String = "res://Database/item/supply_item_catalogv2.json"
 var catalog: Dictionary = {}
+var catalogv2 : Array[ItemInstance]
+
+@export var centralized_delivery_time : int = 3
 
 func _ready() -> void:
-	_load_catalog()
+	#_load_catalog()
+	_load_catalogv2()
+
+func _load_catalogv2() -> void:
+	if not FileAccess.file_exists(catalog_path):
+		push_error("Supply catalog missing at '%s'" % catalog_path)
+		return
+
+	var file: FileAccess = FileAccess.open(catalog_path, FileAccess.READ)
+	if not file:
+		push_error("Failed to open supply catalog: %s" % catalog_path)
+		return
+
+	var raw: String = file.get_as_text()
+	file.close()
+
+	var json = JSON.new()
+	var error = json.parse(raw)
+	if error != OK:
+		push_error("Failed to parse catalog '%s': %s" % json.get_error_message())
+		return
+
+	var parsed = json.data
+	if parsed == null:
+		push_error("Catalog '%s' must contain a Dictionary root" % catalog_path)
+		
+	for data in parsed:
+		var temp_data = ItemData.new()
+		temp_data.id = data.id
+		temp_data.base_price = data.price
+		temp_data.name = data.name
+		temp_data.category = "supply"
+		
+		# Validation for icon
+		# If doesnt exist, hardcoded to default godot icon for now 
+		var temp_icon_path = ""
+		if data.icon_path != "" && FileAccess.file_exists(data.icon_path):
+			temp_icon_path = data.icon_path
+		else:
+			temp_icon_path = "res://icon.svg"
+		temp_data.icon = load(temp_icon_path)
+		var temp_instance = ItemInstance.new(temp_data)
+		catalogv2.append(temp_instance)
 
 func _load_catalog() -> void:
 	if not FileAccess.file_exists(catalog_path):
@@ -39,12 +87,17 @@ func _load_catalog() -> void:
 	else:
 		push_error("Catalog '%s' must contain a Dictionary root" % catalog_path)
 
-# TODO: this should belong to utils script
-func _ensure_item_resources() -> void:
-	pass
-
 # Pending deliveries
 var pending_orders: Array = []
+
+func orderv2(item: ItemInstance, amount: int = 1) -> bool:
+	if not catalogv2.has(item):
+		return false
+	
+	item_orderedv2.emit(item, amount, centralized_delivery_time)
+
+	
+	return true
 
 func order(item_id: String, amount: int = 1) -> bool:
 	if not catalog.has(item_id):

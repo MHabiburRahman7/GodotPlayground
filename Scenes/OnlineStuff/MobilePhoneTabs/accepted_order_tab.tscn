@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnnm0wq4ag0eo"]
+
+[ext_resource type="Script" uid="uid://clelynt6ju3y0" path="res://Script/OnlineStuff/PhoneUI/accepted_order_tab.gd" id="1_1tlmi"]
+[ext_resource type="PackedScene" uid="uid://baaj0y0d1yy2j" path="res://Scenes/OnlineStuff/mobile_phone_extra_tabs/inbox_message_detail.tscn" id="1_a154b"]
+
+[node name="AcceptedOrderTab" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1tlmi")
+inbox_system_path = null
+order_system_path = null
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ActiveOrderList" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+
+[node name="InboxMessageDetail" parent="." instance=ExtResource("1_a154b")]
+layout_mode = 1
