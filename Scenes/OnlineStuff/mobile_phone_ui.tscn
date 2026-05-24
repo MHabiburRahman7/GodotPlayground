@@ -14,9 +14,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sdfb3")
-order_system_path = null
-inbox_system_path = null
-supply_system_path = null
 
 [node name="Background" type="Panel" parent="."]
 layout_mode = 1
@@ -70,7 +67,6 @@ current_tab = 0
 
 [node name="SupplyTab" parent="Background/Margin/Layout/Tabs" instance=ExtResource("2_qq3j2")]
 layout_mode = 2
-supply_system_path = null
 metadata/_tab_index = 0
 
 [node name="StoreTabV2" parent="Background/Margin/Layout/Tabs" instance=ExtResource("3_thidx")]

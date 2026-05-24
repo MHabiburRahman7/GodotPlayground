@@ -14,7 +14,10 @@ func _prepare_inventories() -> void:
 	var delivery_drop_inv: Inventory = Inventory.new()
 	delivery_drop_inv.capacity = 10
 	InventorySystemSingleton.register_inventory("delivery_drop", delivery_drop_inv)
-	DeliveryManager.register_drop("delivery_drop")
+	
+	#delivery_drop is default warehouse_id for supply_system
+	#DeliveryManager.register_drop("delivery_drop")
+	
 	var warehouse_rack_inv: Inventory = Inventory.new()
 	warehouse_rack_inv.capacity = 10
 	InventorySystemSingleton.register_inventory("warehouse_rack", warehouse_rack_inv)

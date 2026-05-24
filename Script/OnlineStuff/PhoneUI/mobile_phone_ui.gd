@@ -18,7 +18,7 @@ class_name MobilePhoneUI
 var _inbox_messages:  Array[MessageInstance] = []
 var _accepted_messages: Array[MessageInstance] = []
 
-func _ready() -> void:
+func _ready() -> void:		
 	_setup_inbox_tab()
 	_setup_accepted_order_tab()
 	_setup_supply_tab()
@@ -32,11 +32,15 @@ func _setup_inbox_tab() -> void:
 		_inbox_tab.message_order_accepted.connect(_on_inbox_responded)
 	if not _inbox_tab.message_order_declined.is_connected(_on_inbox_responded):
 		_inbox_tab.message_order_declined.connect(_on_inbox_responded)
+	
+	_inbox_messages = _inbox_system.get_all_messages()	
 	_inbox_tab.populate(_inbox_messages)
 
 func _setup_accepted_order_tab() -> void:
 	if not _accepted_order_tab.message_order_declined.is_connected(_on_accepted_order_declined):
 		_accepted_order_tab.message_order_declined.connect(_on_accepted_order_declined)
+	
+	_accepted_messages = _inbox_system.get_all_accepted_messages()
 	_accepted_order_tab.populate(_accepted_messages)
 
 func _setup_supply_tab() -> void:

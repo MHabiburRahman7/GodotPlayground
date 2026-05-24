@@ -1,7 +1,6 @@
 class_name OrderInstance
 
 var id: int
-var item_id: String
 var state: int
 var created_at: float
 var data: ItemInstance

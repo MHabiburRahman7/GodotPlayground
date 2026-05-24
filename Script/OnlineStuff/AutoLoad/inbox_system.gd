@@ -15,6 +15,8 @@ var messages_list: Array[MessageInstance] = []
 var latest_message_id: int = 0
 var max_message_list: int = DEFAULT_MAX_MESSAGES
 
+var accepted_message_list: Array[MessageInstance] = []
+
 var _order_system: OrderSystem = null
 
 func _ready() -> void:
@@ -47,7 +49,7 @@ func _on_order_updated(order: OrderInstance, event_label: String) -> void:
 func register_order_event(order: OrderInstance, event_label: String) -> void:
 	print("InboxSystem: register_order_event for order %d event %s" % [order.id, event_label])
 	var message_title: String = "Order #%d: %s" % [order.id, event_label]
-	var message_content: String = "Item %s updated to %s." % [order.item_id, _state_to_label(order.state)]
+	var message_content: String = "Item %s updated to %s." % [order.data.data.name, _state_to_label(order.state)]
 	var message_time: String = _current_time_string()
 	var new_message: MessageInstance = MessageInstance.new(
 		_get_next_message_id(),
@@ -109,3 +111,13 @@ func _state_to_label(state: int) -> String:
 			return "Completed"
 		_:
 			return "Unknown"
+
+func get_all_accepted_messages() -> Array[MessageInstance]:
+	return accepted_message_list.duplicate()
+
+func add_accepted_message(message: MessageInstance) -> void:
+	accepted_message_list.append(message)
+	
+func remove_accepted_message(message: MessageInstance) -> void:
+	if accepted_message_list != null && accepted_message_list.has(message):
+		accepted_message_list.erase(message)

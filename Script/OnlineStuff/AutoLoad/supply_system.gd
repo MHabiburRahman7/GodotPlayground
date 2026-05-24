@@ -8,14 +8,15 @@ class_name SupplySystem
 signal item_ordered(item_id, amount)
 signal item_arrived(item_id, amount)
 
-signal item_orderedv2(item: ItemInstance, amount: int)
-signal item_arrivedv2(item: ItemInstance, amount: int)
+signal item_orderedv2(item: ItemInstance, amount: int, delay: float)
+signal item_arrivedv2(delivery: DeliveryInstance, amount: int, rack_id: String)
 
 @export var catalog_path: String = "res://Database/item/supply_item_catalogv2.json"
 var catalog: Dictionary = {}
 var catalogv2 : Array[ItemInstance]
 
-@export var centralized_delivery_time : int = 3
+@export var centralized_delivery_time : float = 3
+@export var default_dropzone_inventory_id = "delivery_drop"
 
 func _ready() -> void:
 	#_load_catalog()
@@ -49,7 +50,7 @@ func _load_catalogv2() -> void:
 		temp_data.id = data.id
 		temp_data.base_price = data.price
 		temp_data.name = data.name
-		temp_data.category = "supply"
+		temp_data.category = "SUPPLY"
 		
 		# Validation for icon
 		# If doesnt exist, hardcoded to default godot icon for now 
@@ -94,10 +95,17 @@ func orderv2(item: ItemInstance, amount: int = 1) -> bool:
 	if not catalogv2.has(item):
 		return false
 	
-	item_orderedv2.emit(item, amount, centralized_delivery_time)
-
+	# (Money check can go here later)
 	
+	item_orderedv2.emit(item, amount, centralized_delivery_time)
 	return true
+
+func set_delivery_done(delivery: DeliveryInstance) -> void:
+	print("DeliveryManager: Delivery done for %s to %s" % [delivery.item.data.name, default_dropzone_inventory_id])
+	#change state if needed
+	
+	#trigger this back to delivery_system
+	item_arrivedv2.emit(delivery, 1, default_dropzone_inventory_id)
 
 func order(item_id: String, amount: int = 1) -> bool:
 	if not catalog.has(item_id):
@@ -110,12 +118,12 @@ func order(item_id: String, amount: int = 1) -> bool:
 
 	item_ordered.emit(item_id, amount)
 
-	_schedule_delivery(item_id, amount, delivery_time)
+	#_schedule_delivery(item_id, amount, delivery_time)
 	return true
 
-
-func _schedule_delivery(item_id: String, amount: int, delay: float):
-	var timer = get_tree().create_timer(delay)
-	timer.timeout.connect(func():
-		item_arrived.emit(item_id, amount)
-	)
+#DEprecated, already handled in delivery_system
+#func _schedule_delivery(item_id: String, amount: int, delay: float):
+	#var timer = get_tree().create_timer(delay)
+	#timer.timeout.connect(func():
+		#item_arrived.emit(item_id, amount)
+	#)

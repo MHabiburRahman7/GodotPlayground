@@ -12,13 +12,6 @@ const SUPPLY_ITEM_SLOT_SCENE: PackedScene = preload("res://Scenes/OnlineStuff/Ch
 
 func populatev2(supply_items : Array[ItemInstance]) -> void:
 	for item in supply_items:
-		#var btn = Button.new()
-		#btn.text = "%s ($%d)" % [item.name, item.price]
-		#btn.pressed.connect(func():
-			##_supply_system.orderv2(item)
-			#emit("order_supply_item")
-		#)
-		#grid.add_child(btn)
 		var slot: SupplyItemSlot = SUPPLY_ITEM_SLOT_SCENE.instantiate()
 		slot.visible = true
 		slot.set_item(item)
@@ -37,7 +30,7 @@ func populatev2(supply_items : Array[ItemInstance]) -> void:
 
 #func _on_item_arrived(item_id, amount):
 	#print("Arrived:", item_id, amount)
-
+	
 func _on_slot_pressed(item: ItemInstance) -> void:
 	if item != null:
-		emit_signal("order_supply_item", item)
+		order_supply_item.emit(item)
