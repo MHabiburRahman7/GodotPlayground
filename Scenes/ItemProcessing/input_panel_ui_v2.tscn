@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://dap6wtqfxrlp1"]
+
+[ext_resource type="Script" uid="uid://pxmdmf7wu2ls" path="res://Script/ItemProcessing/input_panel_ui_v2.gd" id="1_sbcuq"]
+
+[node name="InputPanelUiV2" type="Control"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sbcuq")
+
+[node name="Container" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 4

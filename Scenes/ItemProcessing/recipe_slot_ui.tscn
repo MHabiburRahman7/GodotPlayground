@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://ggego1rqnlqc"]
+
+[ext_resource type="Texture2D" uid="uid://du3ln4pbru7hd" path="res://icon.svg" id="1_2rh8h"]
+[ext_resource type="Script" uid="uid://byl3m841cjtkw" path="res://Script/ItemProcessing/recipe_slot_ui.gd" id="1_lpvy0"]
+
+[node name="RecipeSlotUi" type="Control" node_paths=PackedStringArray("_icon")]
+custom_minimum_size = Vector2(150, 200)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_right = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lpvy0")
+_icon = NodePath("IconTextureRect")
+
+[node name="IconTextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_2rh8h")
+
+[node name="RecipeButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="button_up" from="RecipeButton" to="." method="_on_recipe_button_button_up"]

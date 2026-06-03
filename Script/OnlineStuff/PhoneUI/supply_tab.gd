@@ -1,7 +1,7 @@
 extends Control
 
 class_name SupplyTab
-@onready var grid = $SupplyGrid
+@onready var grid = $ScrollContainer/SupplyGrid
 
 	#_supply_system.item_arrived.connect(_on_item_arrived)
 	#populate()

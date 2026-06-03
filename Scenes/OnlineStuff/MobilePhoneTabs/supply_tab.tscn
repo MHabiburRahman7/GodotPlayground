@@ -11,16 +11,18 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yrau2")
 
-[node name="SupplyGrid" type="GridContainer" parent="."]
-clip_contents = true
-custom_minimum_size = Vector2(130, 164)
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -65.0
-offset_right = -65.0
-offset_bottom = 488.0
 grow_horizontal = 2
 grow_vertical = 2
-columns = 4
+
+[node name="SupplyGrid" type="GridContainer" parent="ScrollContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(130, 164)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+columns = 7

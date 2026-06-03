@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://ykhfy6nuxqgt"]
+
+[ext_resource type="Script" uid="uid://c2ux811s64fep" path="res://Script/ItemProcessing/item_requirement_ui.gd" id="1_7q3do"]
+
+[node name="ItemRequirementUi" type="Control" node_paths=PackedStringArray("final_product_name_label", "required_time_label", "packing_button", "requirement_root")]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7q3do")
+final_product_name_label = NodePath("VBoxContainer/FinalProductNameLabel")
+required_time_label = NodePath("VBoxContainer/RequiredTimeLabel")
+packing_button = NodePath("VBoxContainer/PackingButton")
+requirement_root = NodePath("VBoxContainer/VBoxContainer")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FinalProductNameLabel" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Product_Name_0"
+vertical_alignment = 1
+
+[node name="RequiredTimeLabel" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Time: 3 hour"
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="PackingButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Start Packing"
+
+[connection signal="button_up" from="VBoxContainer/PackingButton" to="." method="_on_packing_button_button_up"]

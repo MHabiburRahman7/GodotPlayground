@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://60u082vlrxet"]
+
+[ext_resource type="Texture2D" uid="uid://du3ln4pbru7hd" path="res://icon.svg" id="1_8pfff"]
+[ext_resource type="Script" uid="uid://dr58vn4i7csve" path="res://Script/ItemProcessing/item_requirement_slot_ui.gd" id="1_iqwen"]
+
+[node name="ItemRequirementSlotUi" type="Control" node_paths=PackedStringArray("icon", "input_name_label", "current_amount_label", "required_amount_label")]
+custom_minimum_size = Vector2(300, 150)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -752.0
+offset_bottom = -498.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iqwen")
+icon = NodePath("HBoxContainer/TextureRect")
+input_name_label = NodePath("HBoxContainer/InputLabel")
+current_amount_label = NodePath("HBoxContainer/OwnedAmountLabel")
+required_amount_label = NodePath("HBoxContainer/RequiredAmountLabel")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_8pfff")
+stretch_mode = 2
+
+[node name="InputLabel" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Required_item_0"
+
+[node name="OwnedAmountLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "???"
+
+[node name="RequiredAmountLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "/ 2"

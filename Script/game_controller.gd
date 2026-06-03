@@ -8,6 +8,7 @@ var current_2d_scene
 var current_gui_scene
 
 @onready var inventory_panel = $GUI/CanvasLayer/InventoryPanelMaster
+@onready var packing_panel = $GUI/CanvasLayer/PackingUIV2
 
 func _ready() -> void:
 	print("global_controller_ready")
@@ -17,8 +18,22 @@ func _ready() -> void:
 	if OS.is_debug_build():
 		current_gui_scene = null
 	else:
-		current_gui_scene = $GUI/SplashScreenManager
-		
+		current_gui_scene = $GUI/SplashScreenManager		
+
+func scan_for_packing_area() -> void:
+	for packing in get_tree().get_nodes_in_group("packing"):
+		var area : PackingArea = packing
+		if area != null:
+			area.player_start_packing.connect(_on_player_start_packing)
+			area.player_end_packing.connect(_on_player_end_packing)
+			print("packing area found and connected")
+
+func _on_player_start_packing() -> void:
+	print("GameControllerUI: open packing area clicked")
+	packing_panel.visible = true
+	
+func _on_player_end_packing() -> void:
+	packing_panel.visible = false
 
 #to detect existing inventory object in a new scene
 func scan_for_chest() -> void:
@@ -95,3 +110,4 @@ func change_2d_scene(new_scene: String,
 		transition_controller.transition(transition_in, seconds)
 		
 	scan_for_chest()
+	scan_for_packing_area()

@@ -1,0 +1,38 @@
+[
+	{
+		"id": "packing_0",
+		"name": "Cardboard pack",
+		"required_items": 
+			[
+				{
+					"id": "supply_0",
+					"name": "Cardboard box",
+					"amount" : 2
+				},
+				{
+					"id": "supply_1",
+					"name": "Bubble Wrap",
+					"amount" : 1
+				}
+			],
+		"icon_path": ""
+	},
+	{
+		"id": "packing_1",
+		"name": "Bubble wrap pack",
+		"required_items": 
+			[
+				{
+					"id": "supply_0",
+					"name": "Cardboard box",
+					"amount" : 1
+				},
+				{
+					"id": "supply_1",
+					"name": "Bubble Wrap",
+					"amount" : 2
+				}
+			],
+		"icon_path": ""
+	}
+]

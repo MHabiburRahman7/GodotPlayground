@@ -7,7 +7,7 @@ enum ViewState {
 }
 
 const INBOX_ITEM_SLOT_SCENE: PackedScene = preload("res://Scenes/OnlineStuff/ChildItems/inbox_item_slot.tscn")
-@onready var list: VBoxContainer             = $ScrollContainer/OrderList
+@onready var list: VBoxContainer = $ScrollContainer/OrderList
 @onready var _detail_view: InboxMessageDetail = $InboxMessageDetail as InboxMessageDetail
 
 signal message_order_accepted(message: MessageInstance, is_accepted: bool)

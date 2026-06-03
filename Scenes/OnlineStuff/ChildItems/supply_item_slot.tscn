@@ -4,21 +4,21 @@
 [ext_resource type="Texture2D" uid="uid://du3ln4pbru7hd" path="res://icon.svg" id="1_800bx"]
 
 [node name="SupplyItemSlot" type="Control" node_paths=PackedStringArray("icon", "name_label", "price_label")]
+custom_minimum_size = Vector2(64, 98)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -1018.0
-offset_bottom = -476.0
+offset_right = -1088.0
+offset_bottom = -550.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0y0rk")
-icon = NodePath("Background/Icon")
-name_label = NodePath("Background/ItemName")
-price_label = NodePath("Background/ItemPrice")
+icon = NodePath("Background/VBoxContainer/Icon")
+name_label = NodePath("Background/VBoxContainer/VBoxContainer/ItemName")
+price_label = NodePath("Background/VBoxContainer/VBoxContainer/ItemPrice")
 
 [node name="Background" type="Panel" parent="."]
-custom_minimum_size = Vector2(134, 172)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,52 +26,39 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ItemName" type="Label" parent="Background"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Background"]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -43.0
-offset_top = -28.0
-offset_right = 44.0
-offset_bottom = -5.0
 grow_horizontal = 2
-grow_vertical = 0
-text = "Item Name"
-horizontal_alignment = 1
-vertical_alignment = 1
+grow_vertical = 2
+alignment = 1
 
-[node name="ItemPrice" type="Label" parent="Background"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -43.0
-offset_top = -50.0
-offset_right = 44.0
-offset_bottom = -27.0
-grow_horizontal = 2
-grow_vertical = 0
+[node name="Icon" type="TextureRect" parent="Background/VBoxContainer"]
+custom_minimum_size = Vector2(52, 52)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_800bx")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/VBoxContainer"]
+layout_mode = 2
+
+[node name="ItemPrice" type="Label" parent="Background/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
 text = "Rp.1000"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Icon" type="TextureRect" parent="Background"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -53.5
-offset_top = 10.0
-offset_right = 53.5
-offset_bottom = 112.0
-grow_horizontal = 2
-texture = ExtResource("1_800bx")
-expand_mode = 1
+[node name="ItemName" type="Label" parent="Background/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Item Name"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Button" type="Button" parent="Background"]
 layout_mode = 1
