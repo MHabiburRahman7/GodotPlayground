@@ -18,9 +18,13 @@ var max_message_list: int = DEFAULT_MAX_MESSAGES
 var accepted_message_list: Array[MessageInstance] = []
 
 var _order_system: OrderSystem = null
+var _notif_system: NotificationSystem = null
 
 func _ready() -> void:
 	call_deferred("_connect_to_order_system")
+	_notif_system = NotificationSystemSingleton
+	if _notif_system == null:
+		push_error("InboxSystem: notif system is null")
 
 func _connect_to_order_system() -> void:
 	_order_system = _get_order_system()
@@ -40,14 +44,15 @@ func _get_order_system() -> OrderSystem:
 	return null
 
 func _on_order_created(order: OrderInstance, event_label: String) -> void:
-	print("InboxSystem: order created event %s for order %d" % [event_label, order.id])
+	var _notif_message = "Received new order"
+	var _message_icon_path = ""
+	_notif_system.push_notification(_message_icon_path, _notif_message)
 	register_order_event(order, event_label)
 
 func _on_order_updated(order: OrderInstance, event_label: String) -> void:
 	register_order_event(order, event_label)
 
 func register_order_event(order: OrderInstance, event_label: String) -> void:
-	print("InboxSystem: register_order_event for order %d event %s" % [order.id, event_label])
 	var message_title: String = "Order #%d: %s" % [order.id, event_label]
 	var message_content: String = "Item %s updated to %s." % [order.data.data.name, _state_to_label(order.state)]
 	var message_time: String = _current_time_string()

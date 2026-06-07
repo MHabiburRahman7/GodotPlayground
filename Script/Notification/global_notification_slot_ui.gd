@@ -8,6 +8,7 @@ class_name GlobalNotificationSlotUI
 var MESSAGE_CHAR_LIMIT : int = 12
 var MESSAGE_SEPARATOR : String = "\n"
 var _notification_lifetime_in_seconds : float = 2.5
+var MESSAGE_FADE_OUT_DELAY_IN_SECONDS : float = 1.0
 
 var _is_self_destruct_set: bool = false
 
@@ -45,7 +46,16 @@ func _set_self_destruct() -> void:
 	
 	_is_self_destruct_set = true
 	await get_tree().create_timer(_notification_lifetime_in_seconds).timeout
-	queue_free()
+	
+	# Fades the node to transparent over 1.0 second
+	var tween = create_tween()
+	tween.tween_property(self, "modulate:a", 0.0, MESSAGE_FADE_OUT_DELAY_IN_SECONDS)
+	await get_tree().create_timer(MESSAGE_FADE_OUT_DELAY_IN_SECONDS).timeout
+	_immidiate_free()
 
 func _on_button_button_up() -> void:
+	_immidiate_free()
+
+func _immidiate_free() -> void:
 	queue_free()
+	

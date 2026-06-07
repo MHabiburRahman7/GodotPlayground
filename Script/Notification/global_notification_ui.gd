@@ -2,7 +2,7 @@ extends Control
 
 class_name GlobalNotificationUI
 
-var _global_notif_system : NotificationSystemSingleton
+var _global_notif_system : NotificationSystem = null
 
 @export var _notif_list : VBoxContainer
 @export var NOTIFICATION_SLOT_SCENE : PackedScene
@@ -12,15 +12,17 @@ var _global_notif_system : NotificationSystemSingleton
 @export var press_to_create_dummy_one_with_delay : bool = false
 
 func _init() -> void:
+	_global_notif_system =  NotificationSystemSingleton
 	if _global_notif_system == null:
 		if OS.is_debug_build():
 			_global_notif_system = NotificationSystem.new()
+			push_warning("GlobalNotificationUI: GlobalNotifSystem is HARDCODED")
 
 # NOTE: There is a possibility of very first notification is missing
 # The solution is create a simple buffer, later
 func _ready() -> void:
-	_global_notif_system.push_global_notification.connect(_on_notif_pushed)
-	_global_notif_system.push_global_notification_with_delay.connect(_on_notif_with_delay_pushed)
+	_global_notif_system.global_notification_pushed.connect(_on_notif_pushed)
+	_global_notif_system.global_notification_with_delay_pushed.connect(_on_notif_with_delay_pushed)
 	_global_notif_system.clear_notification.connect(_clear_notification)
 	_clear_notification()
 

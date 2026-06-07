@@ -18,9 +18,12 @@ var catalogv2 : Array[ItemInstance]
 @export var centralized_delivery_time : float = 3
 @export var default_dropzone_inventory_id = "delivery_drop"
 
+var _notif_system : NotificationSystem = null
+
 func _ready() -> void:
 	#_load_catalog()
 	_load_catalogv2()
+	_notif_system = NotificationSystemSingleton
 
 func _load_catalogv2() -> void:
 	if not FileAccess.file_exists(catalog_path):
@@ -101,7 +104,11 @@ func orderv2(item: ItemInstance, amount: int = 1) -> bool:
 	return true
 
 func set_delivery_done(delivery: DeliveryInstance) -> void:
-	print("DeliveryManager: Delivery done for %s to %s" % [delivery.item.data.name, default_dropzone_inventory_id])
+	#Push notification
+	var _notif_message = "Delivery done for %s to %s"
+	var _delivery_icon_path = ""
+	_notif_system.push_notification(_delivery_icon_path, _notif_message)
+	
 	#change state if needed
 	
 	#trigger this back to delivery_system
