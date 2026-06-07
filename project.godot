@@ -28,6 +28,7 @@ InboxSystemSingleton="*res://Script/OnlineStuff/AutoLoad/inbox_system.gd"
 PersistenceManager="*res://Script/Utils/PersistenceManager.gd"
 DeliveryManager="*res://Script/OnlineStuff/AutoLoad/delivery_manager.gd"
 TimeSystemSingleton="*res://Script/OnlineStuff/AutoLoad/time_system.gd"
+NotificationSystemSingleton="*res://Script/OnlineStuff/AutoLoad/notification_system.gd"
 
 [display]
 

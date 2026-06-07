@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dup7s54vwgrrs"]
+[gd_scene load_steps=10 format=3 uid="uid://dup7s54vwgrrs"]
 
 [ext_resource type="Script" uid="uid://b5cf2halu0a2a" path="res://Script/game_controller.gd" id="1_4xms1"]
 [ext_resource type="PackedScene" uid="uid://bo2d4vgn52tgf" path="res://Scenes/Inventory/inventory_panel_master.tscn" id="2_17g4a"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://djtoaoru4q0dw" path="res://Scenes/OnlineStuff/mobile_phone_ui.tscn" id="4_167sl"]
 [ext_resource type="PackedScene" uid="uid://opqq450ny215" path="res://Scenes/ItemProcessing/packing_ui_v2.tscn" id="5_7nmw5"]
 [ext_resource type="PackedScene" uid="uid://drncikf26wven" path="res://Scenes/Time/time_panel_ui.tscn" id="6_0230s"]
+[ext_resource type="PackedScene" uid="uid://bce1tq6sgp7rg" path="res://Scenes/Notification/global_notification_ui.tscn" id="7_rxeub"]
 
 [node name="GameControllerNode" type="Node" node_paths=PackedStringArray("world_2d", "gui", "transition_controller")]
 script = ExtResource("1_4xms1")
@@ -39,6 +40,8 @@ visible = false
 visible = false
 
 [node name="TimePanelUi" parent="GUI/CanvasLayer" instance=ExtResource("6_0230s")]
+
+[node name="GlobalNotificationUi" parent="GUI/CanvasLayer" instance=ExtResource("7_rxeub")]
 
 [node name="Debug" parent="." instance=ExtResource("2_x1skj")]
 
