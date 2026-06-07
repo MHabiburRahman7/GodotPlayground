@@ -44,8 +44,14 @@ func get_hour() -> int:
 func get_minute() -> int:
 	return total_minutes % 60
 
+func get_day() -> int:
+	return current_day
+
 func get_time_string() -> String:
 	return "%02d:%02d" % [get_hour(), get_minute()]
 
 func get_world_minutes() -> int:
 	return ((current_day - 1) * MINUTES_PER_DAY) + total_minutes
+
+func set_time_scale(in_time_scale : int) -> void:
+	time_scale = in_time_scale

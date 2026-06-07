@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfv0ny71kg6ld"]
+
+[ext_resource type="Script" uid="uid://curitilwgfn6m" path="res://Script/Time/day_panel_ui.gd" id="1_oylmj"]
+
+[node name="DayPanelUi" type="Control" node_paths=PackedStringArray("_date_label", "_day_night_label")]
+custom_minimum_size = Vector2(160, 40)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oylmj")
+_date_label = NodePath("HBoxContainer/DateLabel")
+_day_night_label = NodePath("HBoxContainer/DayNightLabel")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(160, 40)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="DateLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Day 100 "
+
+[node name="DayNightLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Daylight"

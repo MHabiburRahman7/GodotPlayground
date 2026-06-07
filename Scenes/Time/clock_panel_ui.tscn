@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://x45867ukubub"]
+
+[ext_resource type="Script" uid="uid://vmqyodrucxf" path="res://Script/Time/clock_panel_ui.gd" id="1_7s1uj"]
+
+[node name="ClockPanelUi" type="Control" node_paths=PackedStringArray("_hour_label", "_minute_label", "_am_pm_label")]
+custom_minimum_size = Vector2(88, 32)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7s1uj")
+_hour_label = NodePath("HBoxContainer/HourLabel")
+_minute_label = NodePath("HBoxContainer/MinuteLabel")
+_am_pm_label = NodePath("HBoxContainer/AmPmLabel")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="HourLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "23"
+
+[node name="SeparatorColon" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = ":"
+
+[node name="MinuteLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "12"
+
+[node name="AmPmLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "AM"

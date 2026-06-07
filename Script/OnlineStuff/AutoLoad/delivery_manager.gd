@@ -57,7 +57,6 @@ func _setup_courier_system() -> void:
 
 #currently listening delivery based on minute / most frequent
 func _on_minute_changed(min: int) -> void:
-	print("DeliverySystem, current minute %d" % min)
 	_process_delivery()
 
 func _process_delivery() -> void:
