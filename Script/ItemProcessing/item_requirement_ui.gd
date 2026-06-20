@@ -51,7 +51,7 @@ func init_requirement(item_recipe: RecipeInstance, required_items_names: Array[S
 		_counter += 1
 	
 	visible = true
-	packing_button.disabled = _can_packing
+	packing_button.disabled = !_can_packing
 
 func _on_packing_button_button_up() -> void:
 	if _can_packing:
