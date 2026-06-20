@@ -10,6 +10,9 @@ var current_gui_scene
 @onready var inventory_panel = $GUI/CanvasLayer/InventoryPanelMaster
 @onready var packing_panel = $GUI/CanvasLayer/PackingUIV2
 
+var _packed_item_spawn_pos : Vector2
+var _scattered_object_scene : PackedScene
+
 func _ready() -> void:
 	print("global_controller_ready")
 	Global.set_game_controller(self)
@@ -18,19 +21,36 @@ func _ready() -> void:
 	if OS.is_debug_build():
 		current_gui_scene = null
 	else:
-		current_gui_scene = $GUI/SplashScreenManager		
+		current_gui_scene = $GUI/SplashScreenManager
+	
+	packing_panel.packing_done.connect(_on_packing_done)
+
+func _on_packing_done(packed_item: ItemInstance) -> void:
+	var packed_obj : ScatteredObject = _scattered_object_scene.instantiate() as ScatteredObject
+	packed_obj.init(packed_item)
+	packed_obj.global_position = _packed_item_spawn_pos
+	world_2d.add_child(packed_obj)
+	
+	pass
 
 func scan_for_packing_area() -> void:
 	for packing in get_tree().get_nodes_in_group("packing"):
 		var area : PackingArea = packing
 		if area != null:
-			area.player_start_packing.connect(_on_player_start_packing)
+			#area.player_start_packing.connect(_on_player_start_packing)
+			area.player_start_packingv2.connect(_on_player_start_packingv2)
 			area.player_end_packing.connect(_on_player_end_packing)
 			print("packing area found and connected")
 
 func _on_player_start_packing() -> void:
 	print("GameControllerUI: open packing area clicked")
 	packing_panel.visible = true
+
+func _on_player_start_packingv2(spawn_loc_pos: Vector2, scattered_item_scene: PackedScene) -> void:
+	packing_panel.visible = true
+	_scattered_object_scene = scattered_item_scene
+	_packed_item_spawn_pos = spawn_loc_pos
+	#packing_panel.set_spawn_pack_location(spawn_loc_x, spawn_loc_y)
 	
 func _on_player_end_packing() -> void:
 	packing_panel.visible = false

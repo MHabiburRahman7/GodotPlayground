@@ -9,13 +9,18 @@ const RECIPE_DB_PATH : String = "res://Database/item/packing_recipe.json"
 @onready var _title_label    : Label               = $VBoxContainer/TitleLabel
 # All recipes loaded from JSON
 var _all_recipes    : Array[RecipeInstance] = []
+
+signal packing_done(packed_item: ItemInstance)
+
 func _ready() -> void:
 	_title_label.text = "Packing Table"
 	_load_recipes()
 	_input_panel.init(_all_recipes)
 	_input_panel.select_recipe.connect(_on_recipe_selected)
-	_require_panel.start_packing.connect(_on_start_packing)
+	#_require_panel.start_packing.connect(_on_start_packing)
+	_require_panel.start_packing.connect(_on_start_packing_v2)
 	_require_panel.visible = false    # hide until a recipe is picked
+
 # Load & parse the JSON database into RecipeInstance objects
 func _load_recipes() -> void:
 	var file := FileAccess.open(RECIPE_DB_PATH, FileAccess.ModeFlags.READ)
@@ -82,11 +87,9 @@ func _on_recipe_selected(recipe : RecipeInstance) -> void:
 		reqs.append(needed_amount)
 		curs.append(have_counts.get(item_data.data.id, 0))
 	_require_panel.init_requirement(recipe, names, reqs, curs)
-	
-# Called when the “Pack” button is pressed and requirements are met
-func _on_start_packing(recipe : RecipeInstance) -> void:
+
+func _do_packing(recipe: RecipeInstance) -> ItemInstance:
 	var backpack       : Inventory = InventorySystemSingleton.get_inventory("backpack")
-	var courier_center : Inventory = InventorySystemSingleton.get_inventory("courier_center")
 	# remove each required ingredient
 	for idx in range(recipe.required_items.size()):
 		var ingredient := recipe.required_items[idx]
@@ -101,6 +104,7 @@ func _on_start_packing(recipe : RecipeInstance) -> void:
 					break
 			if not removed:
 				push_error("Missing required item: %s" % ingredient.data.name)
+				return null
 				break
 	# create the finished product and send to courier
 	var prod_data := ItemData.new()
@@ -109,8 +113,21 @@ func _on_start_packing(recipe : RecipeInstance) -> void:
 	prod_data.stackable = false
 	prod_data.base_price = 0
 	prod_data.category  = "STORE"
-	var finished := ItemInstance.new(prod_data)
+	return ItemInstance.new(prod_data)
+
+# Called when the “Pack” button is pressed and requirements are met
+func _on_start_packing(recipe : RecipeInstance) -> void:
+	var courier_center : Inventory = InventorySystemSingleton.get_inventory("courier_center")
+	var finished := _do_packing(recipe)
 	courier_center.add_item(finished)
 	# clear out the requirement panel until next selection
+	_require_panel._clear()
+	_require_panel.visible = false
+
+func _on_start_packing_v2(recipe : RecipeInstance) -> void:
+	var finished : ItemInstance = _do_packing(recipe)
+	if finished == null:
+		return
+	packing_done.emit(finished)
 	_require_panel._clear()
 	_require_panel.visible = false

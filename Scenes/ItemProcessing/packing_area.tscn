@@ -1,13 +1,16 @@
-[gd_scene load_steps=4 format=4 uid="uid://cb410efbk78yt"]
+[gd_scene load_steps=5 format=4 uid="uid://cb410efbk78yt"]
 
 [ext_resource type="TileSet" uid="uid://d07ekdsvyn7vo" path="res://Tilemaps/house_furnitures.tres" id="1_ota70"]
 [ext_resource type="Script" uid="uid://bnx0ig80u0um8" path="res://Script/ItemProcessing/packing_area.gd" id="1_ufpom"]
+[ext_resource type="PackedScene" uid="uid://rey02w21b1ng" path="res://Scenes/ItemProcessing/scattered_object.tscn" id="2_syjk0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ufpom"]
 size = Vector2(44, 50)
 
-[node name="PackingArea" type="Node2D"]
+[node name="PackingArea" type="Node2D" node_paths=PackedStringArray("packed_item_location")]
 script = ExtResource("1_ufpom")
+packed_item_location = NodePath("spawn_location")
+scattered_item_scene = ExtResource("2_syjk0")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_set = ExtResource("1_ota70")
@@ -25,6 +28,9 @@ tile_set = ExtResource("1_ota70")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea"]
 position = Vector2(8, 8)
 shape = SubResource("RectangleShape2D_ufpom")
+
+[node name="spawn_location" type="Node2D" parent="."]
+position = Vector2(-22, -32)
 
 [connection signal="body_shape_entered" from="CollisionArea" to="." method="_on_collision_area_body_shape_entered"]
 [connection signal="body_shape_exited" from="CollisionArea" to="." method="_on_collision_area_body_shape_exited"]

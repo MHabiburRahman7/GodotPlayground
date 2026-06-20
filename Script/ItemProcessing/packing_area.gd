@@ -6,7 +6,11 @@ class_name PackingArea
 var PLAYER_NODE_NAME :String = "Player"
 
 signal player_start_packing()
+signal player_start_packingv2(spawn_loc_pos: Vector2, scattered_item: PackedScene)
 signal player_end_packing()
+
+@export var packed_item_location : Node2D
+@export var scattered_item_scene: PackedScene
 
 var is_player_inside: bool = false
 
@@ -18,7 +22,8 @@ func _process(delta: float) -> void:
 	if is_player_inside:
 		if Input.is_action_pressed("use"):
 			print("PackingArea: Emitting use function")
-			player_start_packing.emit()
+			#player_start_packing.emit()
+			player_start_packingv2.emit(packed_item_location.global_position, scattered_item_scene)
 
 func _on_collision_area_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	# Check if the exact name of the node matches
